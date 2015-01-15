@@ -1,0 +1,6049 @@
+anagrams.c				area_code.c
+ascii.c					average_return.c
+avg_area.c				bits.c
+bliff.c					brokerage.c
+broker_commission2.c			broker_commission.c
+caesar_cipher.c				cal.c
+calendar_swaroop.c			censor.c
+checkbook.c				check_exercise.c
+cmd_arguments.c				cmd_preprocessor.c
+cmd_sum.c				compound_interest.c
+compound_literal.c			constant_e.c
+continue.c				count_down.c
+date1_date2.c				date2.c
+date.c					date_cmd.c
+date_in_legal_form.c			date_strings.c
+decimal_to_binary.c			defining_a_macro_outside_prgm.c
+dictionary2.c				dictionary.c
+digit_to_hex.c				dollars_twenty_ten_five_one.c
+dollars_twenty_ten_five_one_modified.c	dweight.c
+equivalent_12_hour_format.c		equivalent_24_hour_time.c
+even_squares.c				exercise2.c
+exercise3.c				exercise4.c
+exercise.c				factorial.c
+fahrenheit_to_celsius.c			fcopy.c
+fibonacci.c				file_extension.c
+first_last_name2.c			first_last_name.c
+fizz_buzz.c				flames_incomplete.c
+flight.c				fmod.c
+fopen_current.c				fopen_exe_file.c
+format_specifiers.c			for_while.c
+fraction2.c				fraction.c
+fraction_modified.c			gcd+fraction.c
+getchar.c				getchar_scanf.c
+goto.c					grade.c
+income_tax.c				income_tax_modified.c
+incomplete_14.c				infosys_solved.c
+isbn.c					item_purchase.c
+justify.c				large_small_pointers.c
+largest_5_of_1000.c			largest.c
+largest+sec_largest.c			length.c
+length_of_message.c			loan2.c
+loan.c					main.c
+matrix.c				memcpy.c
+message_len.c				my_own.c
+nelems.c				num_of_digits.c
+num_of_digits_exercise.c		num_of_words_KR.c
+octal_equivalent2.c			octal_equivalent.c
+palindrome.c				palindrome_pointers.c
+planet_cmd.c				planet_modified.c
+pointer_arithmetic.c			points_coll.c
+polynomial.c				position_of_a_number.c
+power.c					prime2.c
+prime.c					prime_digit_tcs.c
+project_euler_3.c			project_euler.c
+quick_sort.c				repeated_digit_2.c
+repeated_digit.c			repeated_modified_my_own_2.c
+repeated_modified_my_own.c		repeated_modified_switch_2.c
+repeated_modified_switch.c		reversal_of_message.c
+reversal_of_three_numbers.c		reversal_of_two_nums.c
+reversal_without_splitting.c		reverse2.c
+reverse_array.c				reverse.c
+reverse_cmd_arguments.c			reverse_of_sentence_my_own.c
+reverse_pointer.c			scrabble_array.c
+scrabble_crossword.c			scrabble_pointers.c
+selection_sort.c			seven_segment.c
+sieve_of_eratosthenes.c			sieve_robert.c
+sizeof.c				smallest_largest_word.c
+square2.c				squares_for.c
+sum_long.c				sum_of_doubles.c
+sum_of_n_nums2.c			sum_of_n_nums.c
+t9_dictionary.c				table_of_squares.c
+tax.c					tcs_positioning.c
+tcs_rod_length.c			tcs_start_end.c
+telephone.c				testdebug.c
+toupper.c				universal_product_code2.c
+universal_product_code.c		variable_length_array.c
+volume_of_sphere.c			vowels.c
+wind+speed.c				word.c
+word_length.c				words.c
+
+/****************************
+ * NAME:       anagrams.c   *
+ * PAGE NUM:          181   *
+ * AUTHOR:        SWAROOP   *
+ ****************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int a[26], b[26], ch, i = 0, count1 = 0, count2 = 0;
+
+    printf("Enter a word: ");
+    while((ch = getchar()) != '\n')
+    {
+        a[i] = tolower(ch);
+        count1 += a[i];
+        i++;
+    }
+    a[25] = '\0';
+
+    printf("Enter another word: ");
+    while ((ch = getchar()) != '\n')
+    {
+        b[i++] = tolower(ch);
+        count2 += ch;
+    }
+    b[26] = '\0';
+
+    if (count1 == count2)
+        printf("Anagrams\n");
+    else
+        printf("Not Anagrams!\n");
+
+    return 0;
+}
+/*****************************
+ * NAME:       area_code.c   *
+ * PAGE NUM:            95   *
+ * AUTHOR:         SWAROOP   *
+ *****************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int area_code;
+
+    printf("Enter the telephone area code. I will the corresponding city name: ");
+    scanf("%d", &area_code);
+
+    switch(area_code)
+    {
+        case 229: printf("Area: Albany\n");
+                  break;
+        case 404:
+        case 470:
+        case 678:
+        case 770: printf("Area: Atlanta\n");
+                  break;
+        case 478: printf("Area: Macon\n");
+                  break;
+        case 706:
+        case 762: printf("Area: Columbus\n");
+                  break;
+        case 912: printf("Area: Savannah\n");
+                  break;
+        default: printf("Area code not recognized!\n");
+    }
+    return 0;
+}
+/**********************
+* NAME:     ascii.c   *
+* PAGE NUM:           *
+* AUTHOR    SWAROOP   *
+***********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char *ptr;
+    char c[52]="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    c[52] = '\0';
+    int i;
+    ptr = &c;
+    while(*ptr)
+    {
+        printf("%c - %d\n",*ptr, *ptr);
+        ptr++;
+    }
+    printf("\n*****************************************\n");
+    for (i = 0; i != 128; i++)
+    {
+        printf("%c - %d\n", i, i);
+    }
+
+    return 0;
+}
+/*************************************
+ * PROGRAM NAME:   average_return.c  *
+ * PAGE NUMBER:                 185  *
+ * AUTHOR:                  SWAROOP  *
+ *************************************/
+
+#include <stdio.h>
+
+double average(double a, double b)
+{
+    return (a + b) / 2;
+}
+
+int main(void)
+{
+    double x, y, z;
+
+    printf("Enter three numbers: ");
+    scanf("%lf%lf%lf", &x, &y, &z);
+    printf("Average of %g and %g: %g\n", x, y, average(x, y));
+    printf("Average of %g and %g: %g\n", y, z, average(y, z));
+    printf("Average of %g and %g: %g\n", x, z, average(x, z));
+
+    return 0;
+}
+/***********************************
+ * PROGRAM NAME:         AVG_AREA.c  *
+ * PAGE NUMBER:               345  *
+ * AUTHOR:                SWAROOP  *
+ ***********************************/
+
+#include <stdio.h>
+
+#define AVG(x, y)   ((x) + (y)) / 2
+#define AREA(x, y)  ((x) * (y))
+
+int main(void)
+{
+    int x, y;
+
+    printf("Enter x and y: ");
+    scanf("%d %d", &x, &y);
+
+    printf("%d ",AVG(x, y));
+    printf("%d ", AREA(x, y));
+    return 0;
+}
+/***************************
+ * PROGRAM NAME:  bits2.c  *
+ * PAGE NUMBER:       525  *
+ * AUTHOR:        SWAROOP  *
+ ***************************/
+
+#include <stdio.h>
+#include <ctype.h>
+
+unsigned short swap_bytes(unsigned short i);
+
+int main()
+{
+    unsigned short i;
+
+    printf("Enter a hexadecimal number (up to four digits): ");
+    scanf("%hx", &i);
+
+    printf("Number with bytes swapped: %hx\n", swap_bytes(i));
+
+    return 0;
+}
+
+unsigned short swap_bytes(unsigned short i)
+{
+    unsigned short high_byte = i << 8;
+    unsigned short low_byte = i >> 8;
+
+    return high_byte | low_byte;
+}
+/***************************
+ * PROGRAM NAME:  bliff.c  *
+ * PAGE NUMBER:       158  *
+ * AUTHOR:        SWAROOP  *
+ ***************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char msg[50];
+    int ch, i = 0, j;
+
+    printf("Enter the message: ");
+    while((ch = getchar()) != '\n')
+    {
+        msg[i++] = toupper(ch);
+    }
+
+    j = i + 10 -1;
+
+    for (;i <= j; i++)
+    {
+        msg[i] = '!';
+    }
+
+    msg[i] = '\0';
+    i = 0;
+
+    while (msg[i] != '\0')
+    {
+        switch(msg[i])
+        {
+            case 'A': msg[i] = '4';
+                      break;
+            case 'B': msg[i] = '8';
+                      break;
+            case 'E': msg[i] = '3';
+                      break;
+            case 'I': msg[i] = '1';
+                      break;
+            case 'O': msg[i] = '0';
+                      break;
+            case 'S': msg[i] = '5';
+                      break;
+            default: msg[i] = msg[i];
+        }
+        i++;
+    }
+
+    for (i = 0; msg[i] != '\0'; i++)
+        printf("%c", msg[i]);
+	printf("\n");
+	
+    return 0;
+}
+/* PROBLEM 2 - BROKERAGE */
+
+#include <stdio.h>
+#include <math.h>
+
+#define SERVICE_TAX .1036f
+#define STT .00025f
+#define STAMP_TURNOVER .00002f
+#define REG_CHARGE .00004f
+
+int main(void)
+{
+    float brokerage_rate, buying_amt, selling_amt,pro_loss,buying_amt1,selling_amt1, quantity,total_amount, total_buy, servicetax_brokerage_rate, brokerage_rate2, stt,on_selling, total, turn_over, stamp_duty, brokerage_rate1;
+
+    printf("Enter brokerage rate: ");
+    scanf("%f", &brokerage_rate);
+
+    printf("Enter buying amount: ");
+    scanf("%f", &buying_amt);
+
+    printf("Enter selling amount: ");
+    scanf("%f", &selling_amt);
+
+    printf("Enter quantity: ");
+    scanf("%f", &quantity);
+
+
+    buying_amt1 = buying_amt;
+    selling_amt1 = selling_amt;
+    brokerage_rate /= 100;
+
+    buying_amt *= quantity;
+    brokerage_rate1 = brokerage_rate * buying_amt;
+    servicetax_brokerage_rate = brokerage_rate1 * SERVICE_TAX;
+
+    total_buy = (brokerage_rate1 + servicetax_brokerage_rate);
+
+
+    selling_amt *= quantity;
+
+    brokerage_rate2 = brokerage_rate * selling_amt;
+
+    stt = STT * selling_amt;
+
+    on_selling = servicetax_brokerage_rate + stt + brokerage_rate2;
+
+    total = on_selling + total_buy;
+
+    turn_over = (buying_amt1 + selling_amt1)*100;
+
+    stamp_duty = (.006/100) * turn_over;
+
+    total_amount = total + stamp_duty;
+
+
+    pro_loss = (selling_amt1 - buying_amt1)*100;
+
+    pro_loss -= total_amount;
+
+    if (pro_loss > 0)
+    {
+        printf("\nProfit: %.2f\n", pro_loss);
+    }
+    else
+        printf("\nLOSS: %.2f\n", fabs(pro_loss));
+
+    return 0;
+}
+/************************************
+ * NAME:       broker_commission2.c  *
+ * PAGE NUM:                    50  *
+ * AUTHOR:                  SWAROOP *
+ ************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    float commission, value;
+
+    do {
+        printf("Enter value of trade: ");
+        scanf("%f", &value);
+
+        if (value < 2500.00f)
+            commission = 30.00f + .017f * value;
+        else if (value < 6250.00f)
+            commission = 56.00f + .0066f * value;
+        else if (value < 20000.00f)
+            commission = 76.00f + .0034f * value;
+        else if (value < 50000.00f)
+            commission = 100.00f + .0022f * value;
+        else if (value < 500000.00f)
+            commission = 155.00f + .0011f * value;
+        else
+            commission = 255.00f + .0009f * value;
+
+        if (commission < 39.00f)
+            commission = 39.00f;
+
+        printf("Commission: $%.2f\n\n", commission);
+    } while (value != 0);
+
+    return 0;
+}
+/************************************
+ * NAME:       broker_commission.c  *
+ * PAGE NUM:                    50  *
+ * AUTHOR:                  SWAROOP *
+ ************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    float commission, value;
+
+    printf("Enter value of trade: ");
+    scanf("%f", &value);
+
+    if (value < 2500.00f)
+        commission = 30.00f + .017f * value;
+    else if (value < 6250.00f)
+        commission = 56.00f + .0066f * value;
+    else if (value < 20000.00f)
+        commission = 76.00f + .0034f * value;
+    else if (value < 50000.00f)
+        commission = 100.00f + .0022f * value;
+    else if (value < 500000.00f)
+        commission = 155.00f + .0011f * value;
+    else
+        commission = 255.00f + .0009f * value;
+
+    if (commission < 39.00f)
+        commission = 39.00f;
+
+    printf("Commission: $%.2f\n", commission);
+
+    return 0;
+}
+/***************************************************
+ * PROGRAM NAME:                  caesar_cipher.c  *
+ * PAGE NUMBER:                               180  *
+ * AUTHOR:         SIDDHARTHA_MODIFIED_BY_SWAROOP  *
+ ***************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main()
+{
+    char message[100];
+    char c;
+    int i = 0, shift_amount, j = 0;
+
+    printf("Enter message: ");
+    while ((c = getchar()) != '\n')
+    {
+        message[i] = c;
+        i++;
+    }
+
+    printf("Enter shift amount (1 - 25): ");
+    scanf("%d", &shift_amount);
+
+    while (j < i)
+    {
+        if(!(isalpha(message[j])))
+        {
+            j++;
+            continue;
+        }
+
+         if(message[j] == 'z' || message[j] == 'x' || message[j] == 'y')
+        {
+            message[j] = ((message[j] - 'a') + shift_amount) % 26 + 'a';
+
+            j++;
+            continue;
+        }
+
+        if(message[j] == 'Z' || message[j] == 'X' || message[j] == 'Y')
+        {
+            message[j] = ((message[j] - 'A') + shift_amount) % 26 + 'A';
+
+            j++;
+            continue;
+        }
+
+        if(message[j] >= 65 && message[j] < 91)
+        {
+          message[j] = ((message[j] - 'A') + shift_amount)  % 26 + 'A';
+
+          j++;
+        }
+
+        else
+        {
+         message[j] = ((message[j] - 'a') + shift_amount)  % 26 + 'a';
+
+          j++;
+        }
+    }
+
+    message[j] = '\0';
+
+    puts(message);
+
+
+}
+/******************************
+ * NAME:          calendar.c  *
+ * PAGE NUM:             123  *
+ * AUTHOR:           SWAROOP  *
+ ******************************/
+/* 2013 CALENDAR */
+
+#include <stdio.h>
+
+int main(void)
+{
+    int choice, n, i=1, j=1, m, k, days;
+
+    //printf("1-Sunday 2-Monday 3-Tuesday 4-Wednesday 5-Thursday 6-Friday 7-Saturday\n");
+
+    //printf("Enter number of days: ");
+    //scanf("%d", &n);
+/*
+    if (m > 12)
+    {
+        printf("INVALID NUMBER!");
+        exit(1);
+    }*/
+
+    printf("Enter the month: ");
+    scanf("%d", &choice);
+
+printf("SUN\tMON\tTUE\tWED\tTHU\tFRI\tSAT\n");
+    switch (choice)//2013
+    {
+        case 1: days = 31;
+                choice = 5;
+                printf("\t\t");
+                break;
+        case 2: days = 59;choice = 2;
+                printf("\t\t\t\t\t");
+                break;
+        case 3: days = 90;choice = 2;
+                printf("\t\t\t\t\t");
+                break;
+        case 4: days = 120;choice = 6;
+                printf("");
+                break;
+        case 5: days = 151;choice = 4;
+                printf("\t\t\t");
+                break;
+        case 6: days = 181;choice = 1;
+                printf("\t\t\t\t\t\t");
+                break;
+        case 7: days = 212;choice = 6;
+                printf("");
+                break;
+        case 8: days = 243;choice = 3;
+                printf("\t\t\t\t");
+                break;
+        case 9: days = 273;choice = 0;
+                printf("\t\t\t\t\t\t\t");
+                break;
+        case 10: days = 304;choice = 5;
+                printf("\t\t");
+                break;
+        case 11: days = 334;choice = 2;
+                printf("\t\t\t\t\t");
+                break;
+        case 12: days = 365;choice = 0;
+                printf("\t\t\t\t\t\t\t");
+                break;
+    }
+
+
+    while (i <= choice)
+        {
+            printf("%d\t", i++);
+        }
+    printf("\n");
+
+
+    while (i <= days)
+    {
+        k = i;
+        if (( k > 31) || (k > 30) || (k > 28))
+        {
+
+            k = 1;
+            printf("\n");
+        }
+
+            if (( j % 8 == 0))
+            {
+                printf("\n");
+                j = 0;
+            }
+            else
+                printf("%d\t", i++);
+                j++;
+     }
+
+     printf("\n\n");
+	
+
+    return 0;
+}
+/******************************
+ * NAME:          calendar.c  *
+ * PAGE NUM:             123  *
+ * AUTHOR:           SWAROOP  *
+ ******************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int choice, n, i=1, j=1;
+	
+	printf("1-SUN 2-MON 3-TUE 4-WED 5-THU 6-FRI 7-SAT\n");
+    printf("Enter number of days: ");
+    scanf("%d", &n);
+
+    if (n > 31)
+    {
+        printf("INVALID NUMBER!\n");
+        exit(1);
+    }
+    printf("Enter starting day of the week: ");
+    scanf("%d", &choice);
+
+    printf("SUN\tMON\tTUE\tWED\tTHU\tFRI\tSAT\n");
+    switch (choice)
+    {
+        case 2: printf("\t");
+                choice = 7;
+                break;
+        case 3: printf("\t\t");
+                choice = 6;
+                break;
+        case 4: printf("\t\t\t");
+                choice = 5;
+                break;
+        case 5: printf("\t\t\t\t");
+                choice = 4;
+                break;
+        case 6: printf("\t\t\t\t\t");
+                choice = 3;
+                break;
+        case 7: printf("\t\t\t\t\t\t");
+                choice = 2;
+                break;
+        default: printf("");
+                choice = 8;
+                break;
+    }
+
+    while (i != choice)
+    {
+        printf("%d\t", i++);
+    }
+    printf("\n");
+
+    while (i <= n)
+    {
+        if (j % 8 == 0)
+        {
+            printf("\n");
+            j = 0;
+        }
+        else
+            printf("%d\t", i++);
+            j++;
+    }
+	printf("\n");
+	
+    return 0;
+}
+/******************************
+ * PROGRAM NAME:    censor.c  *
+ * PAGE NUMBER:          389  *
+ * AUTHOR:           SWAROOP  *
+ ******************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int ch, i = 0;
+void censor(char str[]);
+
+int main(void)
+{
+    char str[25];
+
+    censor(str);
+
+    return 0;
+}
+
+void censor(char str[])
+{
+    while ((ch = getchar()) != '\n')
+    {
+        if (ch == 'f' || ch == 'o')
+            ch = 'x';
+        str[i] = ch;
+        i++;
+    }
+    str[i] = '\0';
+    i = 0;
+    while (str[i] != '\0')
+        printf("%c", str[i++]);
+
+}
+/********************************
+ * PROGRAM NAME:  checkbook.c   *
+ * AUTHOR:            SWAROOP   *
+ * PAGE NUMBER:           113   *
+ ********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int cmd;
+    float balance = 0.0f, credit, debit;
+
+    printf("*** SWK checkbook-balancing programming ***\n");
+    printf("Commands:\n\t\t0 = clear\t1 = credit\n\t\t2 = debit\t3 = balance\n\t\t4 = exit\n\n");
+
+    for (;;)
+    {
+        printf("Enter a command: ");
+        scanf("%d", &cmd);
+        switch (cmd)
+        {
+            case 0:
+                balance = 0.0f;
+                break;
+            case 1:
+                printf("Enter amount of credit: ");
+                scanf("%f", &credit);
+                balance += credit;
+                break;
+            case 2:
+                printf("Enter amount of debit: ");
+                scanf("%f", &debit);
+                balance -= debit;
+                break;
+            case 3:
+                printf("Current Balance: $%.2f\n", balance);
+                break;
+            case 4:
+                return 0;
+            default:
+                printf("Commands: 0 = clear\t1 = credit\t2:debit\t3 = balance\t4 = exit\n\n");
+                break;
+        }
+    }
+
+    return 0;
+}
+/****************************
+ * NAME:        exercise.c  *
+ * PAGE NUM:           214  *
+ * AUTHOR:         SWAROOP  *
+ ****************************/
+
+#include <stdio.h>
+
+int check (int x, int y, int n)
+{
+    if ((x < (n-1)) && (y < n-1))
+        return 1;
+    else
+        return 0;
+}
+
+int main(void)
+{
+    int x, y, n;
+
+    printf("Enter the value of x, y and n: ");
+    scanf("%d %d %d", &x, &y, &n);
+
+    if (check (x, y, n-1))
+        printf("%d and %d falls between 0 and %d\n", x, y, n-1);
+    else
+        printf("%d and %d does not falls between 0 and %d\n", x, y, n-1);
+
+
+    return 0;
+}
+/***************************
+ * PROGRAM NAME:  bits2.c  *
+ * PAGE NUMBER:       498  *
+ * AUTHOR:        SWAROOP  *
+ ***************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+	int ch;
+    FILE *fp;
+
+    if (argc != 4)
+    {
+        fprintf(stderr, "INVALID NUMBER OF ARGUMENTS\n");
+        exit(EXIT_FAILURE);
+    }
+
+	/* TO OPEN FIRST FILE */
+    if ((fp = fopen(argv[1], "r")) == NULL)
+    {
+        printf("Can't open file %s", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((ch = getc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+    fclose(fp);
+    
+    /* TO OPEN SECOND FILE */
+    if ((fp = fopen(argv[2], "r")) == NULL)
+    {
+        printf("Can't open file %s", argv[2]);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((ch = getc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+    fclose(fp);
+
+	/* TO OPEN THIRD FILE */
+    if ((fp = fopen(argv[3], "r")) == NULL)
+    {
+        printf("Can't open file %s", argv[3]);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((ch = getc(fp)) != EOF)
+    {
+        putchar(ch);
+    }
+    fclose(fp);
+    
+    return 0;
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i;
+
+    #ifndef MAX
+    #define MAX 10
+    #endif
+
+    for (i = 0; i < MAX; i++)
+        printf("%d ", i);
+    printf("\n");
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:    fizz_buzz.c  *
+ * PAGE NUMBER:                  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+    int sum = 0, i;
+
+    for (i = 1; i < argc; i++)
+    {
+        sum +=  atoi(argv[i]);
+    }
+
+    printf("Total: %d\n", sum);
+
+    return 0;
+}
+
+/***************************************
+ * PROGRAM NAME:   compound_literal.c  *
+ * PAGE NUMBER:                   186  *
+ * AUTHOR:                    SWAROOP  *
+ ***************************************/
+
+#include <stdio.h>
+
+
+int sum_array(int b[], int n)
+{
+    int i, sum=0;
+
+    for (i = 0;i < n; i++)
+    {
+        sum += b[i];
+    }
+
+    return sum;
+}
+int main(void)
+{
+    int total;
+
+    total = sum_array((int []) {1, 2, 3, 4, 5, 6}, 6);  // compound literal
+
+    /* above declaration can also be written as
+        sum_array((int [6]) {1, 2, 3, 4, 5, 6});
+    */
+    printf("Total is: %d ", total);
+    return 0;
+}
+/***************************************
+ * PROGRAM NAME:   compound_literal.c  *
+ * PAGE NUMBER:                   201  *
+ * AUTHOR:                    SWAROOP  *
+ ***************************************/
+
+#include <stdio.h>
+
+
+int sum_array(int b[], int n)
+{
+    int i, sum=0;
+
+    for (i = 0;i < n; i++)
+    {
+        sum += b[i];
+    }
+
+    return sum;
+}
+int main(void)
+{
+    int total;
+
+    total = sum_array((int []) {1, 2, 3, 4, 5, 6}, 6);  // compound literal
+
+    printf("Total is: %d ", total);
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:  constant_e.c   *
+ * PAGE NUMBER:            124   *
+ * AUTHOR:             SWAROOP   *
+ *********************************/
+
+#include <stdio.h>
+
+double fact (int n)
+{
+    int j;
+    if ((n ==  0) || (n == 1))
+        return 1;
+   else
+    return n * fact(n-1);
+}
+
+int main(void)
+{
+    int n, i;
+    double e = 0;
+
+    printf("Enter value of n: ");
+    scanf("%d", &n);
+    for (i=1; i<= n; i++)
+    {
+        e = e + 1/fact(i);
+    }
+    printf("%f", e);
+    return 0;
+}
+/******************************
+ * PROGRAM NAME:  continue.c  *
+ * PAGE NUMBER:         113   *
+ * AUTHOR:          SWAROOP   *
+ ******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n = 0, sum = 0, i;
+
+    while (n < 10)
+    {
+        scanf("%d", &i);
+        if (i == 0)
+            continue;
+        sum += i;
+        n++;
+    }
+    printf("\nSum is: %d", sum);
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:   count_down.c  *
+ * PAGE NUMBER:             186  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+
+void print_count(int n)
+{
+    printf("T minus %d and counting\n", n);
+}
+
+int main(void)
+{
+    int i;
+
+    for (i = 10; i > 0; i--)
+        print_count(i);
+
+    return 0;
+}
+/***************************
+ * PROGRAM NAME:  date.c   *
+ * PAGE NUMBER:       97   *
+ * AUTHOR:       SWAROOP   *
+ ***************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int mm, dd, yyyy, mm2, dd2, yyyy2;
+
+    printf("Enter first date (mm/dd/yyyy): ");
+    scanf("%d/%d/%d", &mm, &dd, &yyyy);
+    printf("Enter second date (mm/dd/yyyy): ");
+    scanf("%d/%d/%d", &mm2, &dd2, &yyyy2);
+
+    if (yyyy2 > yyyy)
+    {
+        if (mm2 > mm)
+        {
+            if (dd2 > dd)
+                printf("%.2d/%.2d/%.2d is earlier than %.2d/%.2d/%.2d\n", mm, dd, yyyy, dd2, mm2, yyyy2);
+            else
+                printf("%.2d/%.2d/%.2d is earlier than %.2d/%.2d/%.2d\n", mm2, dd2, yyyy2, dd, mm, yyyy);
+
+        }
+        else
+            printf("%.2d/%.2d/%.2d is earlier than %.2d/%.2d/%.2d\n", mm2, dd2, yyyy2, dd, mm, yyyy);
+    }
+
+    else
+        if ((yyyy == yyyy2) && (mm == mm2) && (dd == dd2))
+        {
+            printf("%.2d/%.2d/%.2d is same as %.2d/%.2d/%.2d", mm2, dd2, yyyy2, dd, mm, yyyy);
+        }
+    else
+        printf("%.2d/%.2d/%.2d is earlier than %.2d/%.2d/%.2d\n", mm2, dd2, yyyy2, dd, mm, yyyy);
+
+    return 0;
+}
+/****************************
+ * PROGRAM NAME:  date2.c   *
+ * PAGE NUMBER:        97   *
+ * AUTHOR:        SWAROOP   *
+ ***************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int mm, dd, yyyy, mm2, dd2, yyyy2;
+
+    printf("Enter a date (mm/dd/yyyy): ");
+    scanf("%d/%d/%d", &mm, &dd, &yyyy);
+
+    do
+     {
+        printf("Enter a date (mm/dd/yyyy): ");
+        scanf("%d/%d/%d", &mm2, &dd2, &yyyy2);
+
+        if ( yyyy2 > 0)
+        {
+            if (yyyy2 < yyyy)
+            {
+                if (mm2 < mm)
+                {
+                    if (dd2 < dd)
+                    {
+                        dd = dd2;
+                        mm = mm2;
+                        yyyy = yyyy2;
+                    }
+                }
+            }
+        }
+     } while ((mm2 != 0) && ( dd2 != 0) && (yyyy2 != 0));
+
+    printf("Earliest date: %d/%d/%d", dd, mm, yyyy);
+    return 0;
+}
+/*********************
+* NAME:     date.c   *
+* PAGE NUM:     50   *
+* AUTHOR    SWAROOP  *
+***********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int mm, dd, yyyy;
+
+    printf("Enter a date (mm/dd/yyyy): ");
+    scanf("%d/%d/%d", &mm,&dd,&yyyy);
+
+    printf("You entered the date: %d%.2d%d", yyyy, mm, dd);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+	int mm, dd, yyyy, ch;
+	char date[10];
+	int i;
+	
+    if (argc != 2)
+    {
+        fprintf(stderr, "Invalid number of arguments!");
+        exit(EXIT_FAILURE);
+    }
+    sscanf(argv[1], "%s", date);
+
+    /*
+    for (i = 0; i != strlen(date); i++)
+    {
+    	if (date[i] == '-')
+    		continue;
+    	else
+    		
+    			
+    		printf("%c", date[i]);
+    }
+    */
+    
+    sscanf(argv[1], "%[^-]d", mm);
+    sscanf(argv[1], "%[^-]d", dd);
+    sscanf(argv[1], "%[^-]d", yyyy);
+    
+    printf("%d/%d/%d", mm, dd, yyyy);
+    
+    return 0;
+}
+
+/************************************
+ * NAME:       date_in_legal_form.c *
+ * PAGE NUM:                    89  *
+ * AUTHOR:                  SWAROOP *
+ ************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int month, day, year;
+
+    printf("Enter date (mm/dd/yy): ");
+    scanf("%d/%d/%d", &month, &day, &year);
+
+    printf("Dated this %d", day);
+    switch (day)
+    {
+        case 1:
+        case 21:
+        case 31:    printf("st");
+                    break;
+        case 2:
+        case 22:    printf("nd");
+                    break;
+        case 3:
+        case 23:    printf("rd");
+                    break;
+        default:    printf("th");
+                    break;
+    }
+    printf(" day of ");
+
+    switch (month)
+    {
+        case 1: printf("January");
+                break;
+        case 2: printf("February");
+                break;
+        case 3: printf("March");
+                break;
+        case 4: printf("April");
+                break;
+        case 5: printf("May");
+                break;
+        case 6: printf("June");
+                break;
+        case 7: printf("July");
+                break;
+        case 8: printf("August");
+                break;
+        case 9: printf("September");
+                break;
+        case 10: printf("October");
+                break;
+        case 11: printf("Novermber");
+                break;
+        case 12: printf("December");
+                break;
+    }
+
+    printf(", 20%.2d.\n", year);
+
+    return 0;
+}
+/*****************************************
+ * PROGRAM NAME:         date_strings.c  *
+ * PAGE NUMBER:                     313  *
+ * AUTHOR:                      SWAROOP  *
+ *****************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int mm, dd, yyyy;
+
+    printf("Enter a date (mm/dd/yyyy): ");
+    scanf("%d/%d/%d", &mm, &dd, &yyyy);
+
+    switch(mm)
+    {
+        case 1: printf("January ");
+                break;
+        case 2: printf("February ");
+                break;
+        case 3: printf("March ");
+                break;
+        case 4: printf("April");
+                break;
+        case 5: printf("May ");
+                break;
+        case 6: printf("June ");
+                break;
+        case 7: printf("July ");
+                break;
+        case 8: printf("August ");
+                break;
+        case 9: printf("September ");
+                break;
+        case 10: printf("October ");
+                break;
+        case 11: printf("November ");
+                break;
+        case 12: printf("December ");
+                break;
+        default: printf("Invalid!");
+                 return;
+    }
+
+    printf("%2d, %d\n", dd, yyyy);
+
+    return 0;
+}
+/**************************************
+ * NAME:         decimal_to_binary.c  *
+ * PAGE NUM:                     214  *
+ * AUTHOR:                   SWAROOP  *
+ **************************************/
+
+#include <stdio.h>
+
+void pb(int n)
+{
+    if (n != 0)
+    {
+        pb(n / 2);
+        putchar('0' + n % 2);
+    }
+}
+
+
+int main(void)
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    pb(n);
+
+    return 0;
+}
+#include <stdio.h>
+
+int main(void)
+{
+    int i;
+    for (i = 0; i < SIZE; i++)
+    {
+        printf("%d ", i);
+    }
+
+    return 0;
+}
+/**********************************
+ * PROGRAM NAME:   Dictionary2.c  *
+ * PAGE NUMBER:              157  *
+ * AUTHOR:               SWAROOP  *
+ **********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch, i = 0;
+    char phone[20];
+    printf("Enter a phone number: ");
+    while ((ch = getchar()) != '\n')
+    {
+        phone[i] = ch;
+        switch (toupper(ch))
+        {
+            case 'A':
+            case 'B':
+            case 'C': printf("2");
+                      break;
+            case 'D':
+            case 'E':
+            case 'F': printf("3");
+                      break;
+            case 'G':
+            case 'H':
+            case 'I': printf("4");
+                      break;
+            case 'J':
+            case 'K':
+            case 'L': printf("5");
+                      break;
+            case 'M':
+            case 'N':
+            case 'O': printf("6");
+                      break;
+            case 'P':
+            case 'Q':
+            case 'R':
+            case 'S': printf("7");
+                      break;
+            case 'T':
+            case 'U':
+            case 'V': printf("8");
+                      break;
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z': printf("9");
+                      break;
+            default: printf("%c", ch);
+
+        }
+        i++;
+    }
+
+    for (i=0;i != '\0';i++)
+        printf("%c",phone[i]);
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:   Dictionary.c  *
+ * PAGE NUMBER:             157  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch;
+    printf("Enter a phone number: ");
+    while ((ch = getchar()) != '\n')
+    {
+        switch (toupper(ch))
+        {
+            case 'A':
+            case 'B':
+            case 'C': printf("2");
+                      break;
+            case 'D':
+            case 'E':
+            case 'F': printf("3");
+                      break;
+            case 'G':
+            case 'H':
+            case 'I': printf("4");
+                      break;
+            case 'J':
+            case 'K':
+            case 'L': printf("5");
+                      break;
+            case 'M':
+            case 'N':
+            case 'O': printf("6");
+                      break;
+            case 'P':
+            case 'Q':
+            case 'R':
+            case 'S': printf("7");
+                      break;
+            case 'T':
+            case 'U':
+            case 'V': printf("8");
+                      break;
+            case 'W':
+            case 'X':
+            case 'Y':
+            case 'Z': printf("9");
+                      break;
+            default: printf("%c", ch);
+        }
+    }
+
+    return 0;
+}
+/************************************
+ * PROGRAM NAME:    digit_to_hex.c  *
+ * PAGE NUMBER:                280  *
+ * AUTHOR:                 SWAROOP  *
+ ************************************/
+
+#include <stdio.h>
+
+#define SIZE 15
+
+char digit[SIZE];
+
+char digit_to_hex(int digit);
+
+int main(void)
+{
+    int num, result;
+
+    printf("Enter a digit: ");
+    scanf("%d", &num);
+
+    result = digit_to_hex(num);
+
+    printf("%c", result);
+
+    return 0;
+}
+
+char digit_to_hex(int digit)
+{
+    return "0123456789ABCDEF"[digit];
+}
+/********************
+* NAME:     tax.c   *
+* PAGE NUM:    34   *
+* PROGRAM NUM:  7   *
+* AUTHOR: SWAROOP   *
+*********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    static int amount, twenty, ten, five, one;
+
+    printf("Enter a dollar amount: ");
+    scanf("%d", &amount);
+
+    if (amount >= 20)
+    {
+        twenty = amount/20;
+        amount = amount%20;
+    }
+    if (amount >= 10)
+    {
+        ten = amount/10;
+        amount = amount%10;
+    }
+    if (amount >= 5)
+    {
+        five = amount/5;
+        amount = amount%5;
+    }
+    one = amount;
+
+    printf("$20 bills: %d\n", twenty);
+    printf("$10 bills: %d\n", ten);
+    printf("$5 bills:  %d\n", five);
+    printf("$1 bills:  %d\n", one);
+
+    return 0;
+}
+
+/*********************
+ * NAME:     tax2.c   *
+ * PAGE NUM:    34    *
+ * PROGRAM NUM:  7    *
+ * AUTHOR: SWAROOP    *
+ **********************/
+
+#include <stdio.h>
+
+void pay_amount(int dollars, int *twenties, int *tens, int *fives, int *ones);
+
+int main(void)
+{
+    static int amount, twenties, tens, fives, ones;
+
+    printf("Enter a dollar amount: ");
+    scanf("%d", &amount);
+
+    pay_amount(amount, &twenties, &tens, &fives, &ones);
+
+    return 0;
+}
+
+void pay_amount(int dollars, int *twenties, int *tens, int *fives, int *ones)
+{
+    if (dollars >= 20)
+    {
+        *twenties = dollars/20;
+        dollars = dollars%20;
+    }
+    if (dollars >= 10)
+    {
+        *tens = dollars/10;
+        dollars = dollars%10;
+    }
+    if (dollars >= 5)
+    {
+        *fives = dollars/5;
+        dollars= dollars%5;
+    }
+    *ones = dollars;
+
+    printf("$20 bills: %d\n", *twenties);
+    printf("$10 bills: %d\n", *tens);
+    printf("$5 bills:  %d\n", *fives);
+    printf("$1 bills:  %d\n", *ones);
+}
+/************************
+* NAME:     dweight.c   *
+* PAGE NUM:        20   *
+* AUTHOR:     SWAROOP   *
+*************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int height, length, width, volume, weight;
+
+    printf("Enter height of box: ");
+    scanf("%d", &height);
+    printf("Enter length of box: ");
+    scanf("%d", &length);
+    printf("Enter width of box: ");
+    scanf("%d", &width);
+
+    volume = height * length * width;
+    weight = (volume + 165) / 166;
+
+    printf("\nDimensional weights (pounds): %d\n", weight);
+    printf("Volume (cubic inches): %d\n", volume);
+
+    /* THE ABOVE STATEMENT CAN ALSO BE WRITTEN AS
+    printf("Volume (cubic inches): %d\n", length * width * height); */
+
+    return 0;
+}
+/********************************
+ * NAME:       24hour-12hour.c  *
+ * PAGE NUM:                89  *
+ * AUTHOR:             SWAROOP  *
+ ********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int hour, min;
+
+    printf("Enter a 24-hour time(hour:min): ");
+    scanf("%d:%d", &hour, &min);
+
+        if (min >= 60)
+        {
+            do
+            {
+                min = min - 60;
+            } while(min > 60);
+        }
+        if (hour > 12)
+        {
+            hour = hour - 12;
+
+            printf("\nEquivalent 12-hour time: %.2d:%.2d PM\n", hour, min);
+            exit(0);
+        }
+
+
+    printf("\nEquivalent 12-hour time: %.2d:%.2d AM\n", hour, min);
+    return 0;
+}
+/****************************************
+ * PROGRAM NAME:  equivalent_24_hour.c  *
+ * PAGE NUMBER:                     97  *
+ * AUTHOR:                     SWAROOP  *
+ ****************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int hour, min;
+    char str[5];
+
+    printf("Enter 12-hour time: ");
+    scanf("%d:%d[a-zA-Z ]", &hour, &min, &str);
+
+    if (hour > 24)
+    {
+        printf("Invalid time!");
+        return 0;
+    }
+    if (min >= 60)
+    {
+        min = min - 60;
+    }
+    if (hour < 12)
+        hour += 12;
+    else
+    {
+        printf("Equivalent 24-hour time: %.2d:%.2d\n", hour, min);
+        return 0;
+    }
+
+    printf("Equivalent 24-hour time: %.2d:%.2d\n", hour, min);
+
+    return 0;
+}
+/******************************
+ * NAME:       even_square.c  *
+ * PAGE NUM:              50  *
+ * AUTHOR:           SWAROOP  *
+ ******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n, i;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    printf("Even squares between 2 to %d: \n", n);
+    for (i = 2; i*i <= n; i += 2)
+    {
+        printf("%d\n", i*i);
+    }
+
+    return 0;
+}
+/********************************
+ * PROGRAM NAME:    exercise.c  *
+ * PAGE NUMBER:            389  *
+ * AUTHOR:             SWAROOP  *
+ ********************************/
+
+#include <stdio.h>
+#include <string.h>
+
+
+int main(void)
+{
+    char str[25];
+
+    strcpy(str, "tire-bouchon");
+    strcpy(&str[4] , "d-or-wi");
+    strcat(str, "red?");
+    puts(str);
+
+
+    return 0;
+}
+/********************************
+ * PROGRAM NAME:   exercise3.c  *
+ * PAGE NUMBER:            389  *
+ * AUTHOR:             SWAROOP  *
+ ********************************/
+
+#include <stdio.h>
+#include <string.h>
+
+
+int main(void)
+{
+    char s1[25], s2[25];
+
+    strcpy(s1, "computer");
+    strcpy(s2, "science");
+
+    printf("%d\n", strlen(s1));
+
+    if (strcmp(s1, s2) < 0)
+        strcat(s1, s2);
+    else
+        strcat(s2, s1);
+
+    s1[strlen(s1)-6] = '\0';
+
+    puts(s1);
+    puts(s2);
+
+
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:    exercise4.c  *
+ * PAGE NUMBER:             310  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    char s[] = "Hsjodi", *p;
+
+    for (p = s; *p; p++)
+        --*p;
+    puts(s);
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:  exercise.c   *
+ * PAGE NUMBER:          113   *
+ * AUTHOR:           SWAROOP   *
+ *******************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int sum=0, i;
+
+    for (i=0; i< 10; i++)
+    {
+        if (i % 2)
+            continue;
+        sum += i;
+        printf("%d ", sum);
+    }
+    printf("%d ", sum);
+
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:  factorial.c  *
+ * PAGE NUMBER:           158  *
+ * AUTHOR:            SWAROOP  *
+ *******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num, i, num1;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+
+    num1 = num;
+
+    for (i=1;i<num;i++)
+    {
+        num1 = num1 * (num-i);
+    }
+    printf("%d\n", num1);
+
+    return 0;
+}
+/***************************
+* NAME:     fah_to_cel.c   *
+* PAGE NUM:        20      *
+* AUTHOR:     SWAROOP      *
+****************************/
+
+#include <stdio.h>
+
+#define FREEZING_PT 32.0f
+#define SCALE_FACTOR (5.0f / 9.0f)
+#define P printf
+
+int main(void)
+{
+    float fahrenheit, celsius;
+
+    P("Enter Fahrenheit temperature: ");
+    scanf("%f", &fahrenheit);
+
+    celsius = (fahrenheit - FREEZING_PT) * SCALE_FACTOR;
+    P("Celsius equivalent is: %.1f\n", celsius);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    FILE *source, *dest;
+    int ch;
+
+    if (argc != 3)
+    {
+        fprintf(stderr, "usage: fcopy source dest\n");
+        exit(EXIT_FAILURE);
+    }
+
+    if ((source = fopen(argv[1], "rb")) == NULL)
+    {
+        fprintf(stderr, "Can't open %s\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    if ((dest = fopen(argv[2], "wb")) == NULL)
+    {
+        fprintf(stderr, "Can't open %s\n", argv[2]);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((ch = getc(source)) != EOF)
+ 	   putc(ch, dest);
+
+
+    fclose(source);
+    fclose(dest);
+    return 0;
+}
+
+/*******************************
+ * PROGRAM NAME:  fibonacci.c  *
+ * PAGE NUMBER:           158  *
+ * AUTHOR:            SWAROOP  *
+ *********************---*******/
+
+#include <stdio.h>
+
+#define SIZE 40
+
+int main(void)
+{
+    int fib_numbers[SIZE], i;
+    fib_numbers[0] = 0;
+    fib_numbers[1] = 1;
+
+    for (i = 2; i < SIZE; i++)
+    {
+        fib_numbers[i] = fib_numbers[i-1] + fib_numbers[i-2];
+        printf("%d\n", fib_numbers[i]);
+    }
+
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:    extension.c  *
+ * PAGE NUMBER:             389  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int ch, i = 0;
+void censor(char str[]);
+
+int main(void)
+{
+    char s[25], r[25];
+    char *p, *q;
+
+    p = &s, q = &r;
+
+    while ((ch = getchar()) != '\n')
+    {
+        *p = ch;
+        p++;
+    }
+    *p = '\0';
+    p = &s;
+    while  (*p != '\0')
+    {
+        if (*p == '.')
+            printf(" ");
+        else
+            putchar(*p);
+        p++;
+    }
+
+    return 0;
+}
+/*************************************
+ * PROGRAM NAME:  first_last_name_2.c  *
+ * PAGE NUMBER:                 158  *
+ * AUTHOR:                  SWAROOP  *
+ *************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    char first, last;
+    int ch;
+
+    printf("Enter a first and last name: ");
+    scanf("%c%[a-zA-Z] ", &first, &last);
+
+    while ((ch = getchar()) != '\n')
+    {
+        printf("%c", ch);
+    }
+
+    printf(" ,%c", first);
+
+    return 0;
+}
+/*************************************
+ * PROGRAM NAME:  first_last_name.c  *
+ * PAGE NUMBER:                 158  *
+ * AUTHOR:                  SWAROOP  *
+ *************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    char first[15], last[15];
+
+    printf("Enter a first and last name: ");
+    scanf("%s %s", first, last);
+
+    printf("%s, %c.", last, first[0]);
+
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:    fizz_buzz.c  *
+ * PAGE NUMBER:                  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int a, m, n, i;
+
+    printf("Enter two numbers: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter value of n: ");
+    scanf("%d", &a);
+
+    for (i = 1; i <= a; i++)
+    {
+        if (i % (m * n) == 0)
+            printf("Fizz Buzz\n");
+        else if (i % 3 == 0)
+            printf("Fizz\n");
+        else if (i % 5 == 0)
+            printf("Buzz\n");
+        else
+            printf("%d\n", i);
+    }
+
+    return 0;
+}
+#include <stdio.h>
+#include <string.h>
+
+char s1[100], s2[100], flames[7] = {'F', 'L', 'A', 'M', 'E', 'S'};
+int i, j = 0, ch, length, len = 0, size;
+
+int main()
+{
+
+
+    while ((ch = getchar()) != '\n')
+    {
+        s1[j] = ch;
+        j++;
+    }
+
+    top:
+    while ((ch = getchar()) != '\n')
+    {
+    	for(i = 0; i < strlen(s1); i++)
+        {
+            if (ch == s1[i])
+            {
+                s1[i] = ' ';
+
+                goto top;
+            }
+        }
+
+        s1[j] = ch;
+
+        j++;
+    }
+    s1[j] = '\0';
+
+
+    /*********************************
+     * printf("Remaining string: "); *
+     * for(i=0;i<j;i++)              *
+     * {                             *
+     *    if (s1[i] == ' ')          *
+     *    {                          *
+     *       len++;                  *
+     *       continue;               *
+     *    }                          *
+     *    printf("%c", s1[i]);       *
+     * }                             *
+     *  printf("\n");                *
+     *********************************/
+    printf("Remaining string: ");
+      for(i=0;i<j;i++)
+      {
+         if (s1[i] == ' ')
+         {
+            len++;
+           continue;
+        }
+         printf("%c", s1[i]);
+      }
+       printf("\n");
+    len = strlen(s1) - len;
+
+    printf("%d", len);
+
+    for (i = 0;i < 6; i++)
+    {
+        if (flames[len%6] == ' ')
+            continue;
+        flames[len%6] = ' ';
+    }
+
+    return 0;
+}
+/*************************************************
+ * PROGRAM NAME:  departure_arrival_of_flight.c  *
+ * PAGE NUMBER:                              97  *
+ * AUTHOR:                              SWAROOP  *
+ *************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int hour, min, seconds;
+
+    printf("Enter a 24-hour time: ");
+    scanf("%d:%d", &hour, &min);
+
+    seconds = hour * 60 + min;
+
+    if ( seconds <= 531)
+    {
+        printf("Closest departure time is 8:00 a.m., arriving at 10:15 a.m.\n");
+    }
+    else if ( seconds <= 631)
+    {
+        printf("Closest departure time is 9:43 a.m., arriving at 11:52 a.m.\n");
+    }
+    else if (seconds <= 723)
+    {
+        printf("Closest departure time is 11:19 a.m., arriving at 1:31 p.m.\n");
+    }
+    else if (seconds <= 803)
+    {
+        printf("Closest departure time is 12:47 p.m., arriving at 3:00 p.m.\n");
+    }
+    else if (seconds <= 892)
+    {
+        printf("Closest departure time is 2:00 p.m., arriving at 4:08 p.m.\n");
+    }
+    else if (seconds <= 1042)
+    {
+        printf("Closest departure time is 3:45 p.m., arriving at 5:55 p.m.\n");
+    }
+    else if (seconds <= 1222)
+    {
+        printf("Closest departure time is 7:00 p.m., arriving at 9:20 p.m.\n");
+    }
+    else if (seconds <= 1305)
+    {
+        printf("Closest departure time is 9:45 p.m., arriving at 11:58 p.m.\n");
+    }
+    return 0;
+}
+
+/**********************
+ * NAME:       fmod.c *
+ * PAGE NUM:    Q & A *
+ * AUTHOR:    SWAROOP *
+ **********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    float i=5.5, j=11.0000;
+    printf("%f", fmod(j,i));
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(main)
+{
+    int c, i, nwhite, nother, ndigit[10];
+
+    nwhite = nother = 0;
+
+    for (i = 0; i < 10; i++)
+        ndigit[i] = 0;
+    while ((c = getchar()) != -1)
+    {
+        switch(c)
+        {
+            case '0':
+            case '1':
+            case '2':
+            case '3':
+            case '4':
+            case '5':
+            case '6':
+            case '7':
+            case '8':
+            case '9':   ndigit[c-'0']++;
+                        break;
+            case ' ':
+            case '\n':
+            case '\t':  nwhite++;
+                        break;
+            default:    nother++;
+                        break;
+        }
+    }
+    printf("digits =");
+    for (i = 0; i < 10; i++)
+        printf(" %d", ndigit[i]);
+    printf(", white space = %d, other = %d\n", nwhite, nother);
+
+    return 0;
+}
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+    FILE *source;
+    int ch;
+
+    if (argc != 2)
+    {
+        fprintf(stderr, "usage: fcopy source dest\n");
+        exit(EXIT_FAILURE);
+    }
+
+    if ((source = fopen(argv[1], "rb")) == NULL)
+    {
+        fprintf(stderr, "Can't open %s\n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    while ((ch = getc(source)) != EOF)
+ 	   putc(ch, stdout);
+
+    fclose(source);
+
+    return 0;
+}
+
+/**********************************
+* NAME:     format_specifiers.c   *
+* PAGE NUM:                  34   *
+* AUTHOR:               SWAROOP   *
+***********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i;
+    float x;
+
+    i = 40;
+    x = 839.21f;
+
+    printf("|%d|%5d|%-5d|%5.3d|\n", i, i, i, i);
+    printf("|%10.3f|%10.3e|%-10g|\n", x, x, x);
+
+    return 0;
+}
+/********************************
+ * PROGRAM NAME:  for_while.c   *
+ * AUTHOR:            SWAROOP   *
+ * PAGE NUMBER:           113   *
+ ********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n = 0, sum = 0, i;
+
+    /****** DIFFERENCE BETWEEN WHILE AND FOR LOOPS ******/
+
+    /* while loop */
+    while (n < 10)
+    {
+        scanf("%d", &i);
+        if (i == 0)
+            continue;
+        sum += i;
+        n++; // while increments n only when i not equal to zero
+    }
+    printf("%d\n", sum);
+
+    /* for loop */
+    sum = 0;
+    for (n = 0; n < 10; n++)
+    {
+        scanf("%d", &i);
+        if (i == 0)
+            continue;
+        sum += i;
+    } // while increments n irrespective of the value of i, that is, eventhough i = 0
+
+    printf("%d\n", sum);
+    return 0;
+}
+/*************************
+ * NAME:     fraction.c  *
+ * PAGE NUM:         34  *
+ * AUTHOR:      SWAROOP  *
+ *************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num1, denom1, num2, denom2, result_num, result_denom;
+
+    printf("Enter first fraction and second fraction: ");
+    scanf("%d/%d + %d/%d", &num1, &denom1, &num2, &denom2);
+
+
+    result_num = num1 * denom2 + num2 * denom1;
+    result_denom = denom1 * denom2;
+
+    printf("The sum is %d/%d\n", result_num, result_denom);
+
+    return 0;
+}
+/**********************************
+* NAME:     format_specifiers.c   *
+* PAGE NUM:                  34   *
+* AUTHOR:               SWAROOP   *
+***********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num1, denom1, num2, denom2, result_num, result_denom;
+
+    printf("Enter first fraction: ");
+    scanf("%d/%d", &num1, &denom1);
+
+    printf("Enter second fraction: ");
+    scanf("%d/%d", &num2, &denom2);
+
+    result_num = num1 * denom2 + num2 * denom1;
+    result_denom = denom1 * denom2;
+
+    printf("The sum is %d/%d\n", result_num, result_denom);
+
+    return 0;
+}
+/**********************************
+ * NAME:     fraction_modified.c  *
+ * PAGE NUM:                 158  *
+ * AUTHOR:               SWAROOP  *
+ **********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num1, denom1, num2, denom2, result_num1, result_denom1, result_num2, result_denom2, result_num3, result_denom3, result_num4, result_denom4;
+
+    printf("Enter first fraction and second fraction: ");
+    scanf("%d/%d + %d/%d", &num1, &denom1, &num2, &denom2);
+
+    printf("Enter first fraction and second fraction: ");
+    scanf("%d/%d - %d/%d", &num1, &denom1, &num2, &denom2);
+
+    printf("Enter first fraction and second fraction: ");
+    scanf("%d/%d * %d/%d", &num1, &denom1, &num2, &denom2);
+
+    printf("Enter first fraction and second fraction: ");
+    scanf("%d/%d / %d/%d", &num1, &denom1, &num2, &denom2);
+
+    result_num1 = num1 * denom2 + num2 * denom1;
+    result_denom1 = denom1 * denom2;
+
+    result_num2 = num1 * denom2 - num2 * denom1;
+    result_denom2 = denom1 * denom2;
+
+    result_num3 = num1 * num2 ;
+    result_denom3 = denom1 * denom2;
+
+    result_num4 = num1 * denom2;
+    result_denom4 = denom1 * num2;
+
+    printf("The sum is %d/%d\n", result_num1, result_denom1);
+    printf("The sub is %d/%d\n", result_num2, result_denom2);
+    printf("The multiplication is %d/%d\n", result_num3, result_denom3);
+    printf("The division is %d/%d\n", result_num4, result_denom4);
+
+    return 0;
+}
+/**********************************
+ * PROGRAM NAME:  gcd_fraction.c  *
+ * AUTHOR:        SWAROOP         *
+ * PAGE NUM:      122             *
+ **********************************/
+ 
+#include <stdio.h>
+
+int main(void)
+{
+    int gcd,lcm,m,n,p,q,r, s;
+
+    printf("Enter two numbers: \n");
+    scanf("%d %d",&m,&n);
+    p = m, q = n;
+
+    while (n != 0)
+    {
+        r = m % n;
+        m = n;
+        n = r;
+    }
+
+    gcd = m;
+    lcm = (p * q)/gcd;
+
+    printf("\nGreatest common divisor: %d\n", gcd);
+    r = p / gcd;
+    s = q / gcd;
+    printf("\nLowest form of %d/%d is %d/%d\n", p, q,  r, s);
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:   getchar.c   *
+ * PAGE NUMBER:          141   *
+ * AUTHOR:           SWAROOP   *
+ *******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch;
+
+    printf("Enter a string: ");
+
+    while ((ch = getchar()) != '\n')
+    {
+        putchar(ch);
+    }
+
+    return 0;
+}
+/*****************************************
+ * PROGRAM NAME:  scanf+with+getchar.c   *
+ * PAGE NUMBER:                    157   *
+ * AUTHOR:                    K N KING   *
+ *****************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+  int i, n;
+  char ch;
+
+  printf("This program prints a table of squares.\n");
+
+  printf("Enter number of entries in table: ");
+  scanf("%d", &n);
+
+  ch = getchar();
+    /* dispose of new-line character following number of entries */
+    /* could simply be getchar(); */
+
+  for (i = 1; i <= n; i++)
+  {
+    printf("%10d%10d\n", i, i * i);
+    if (i % 24 == 0)
+    {
+      printf("Press Enter to continue...");
+      ch = getchar();   /* or simply getchar(); */
+    }
+  }
+
+  return 0;
+}
+/***************************
+ * PROGRAM NAME:  goto.c   *
+ * PAGE NUMBER:      113   *
+ * AUTHOR:       SWAROOP   *
+ ***************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int d, n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    for (d = 2; d < n; d++)
+        if (n % d == 0)
+            goto done;
+    done:
+        if (d < n)
+            printf("%d is divisible by %d\n", n, d);
+        else
+            printf("%d is prime.\n", n);
+
+    return 0;
+}
+/****************************
+ * PROGRAM NAME:  grade.c   *
+ * PAGE NUMBER:        97   *
+ * AUTHOR:        SWAROOP   *
+ ***************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num;
+
+    printf("Enter a numerical grade: ");
+    scanf("%d", &num);
+
+    num = num / 10;
+
+    switch (num)
+    {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5: printf("Letter grade: F\n");
+                break;
+        case 6: printf("Letter grade: D\n");
+                break;
+        case 7: printf("Letter grade: C\n");
+                break;
+        case 8: printf("Letter grade: B\n");
+                break;
+        case 9:
+        case 10: printf("Letter grade: A\n");
+                break;
+        default: printf("WRONG INPUT!!\n");
+                 break;
+    }
+
+    return 0;
+}
+/**************************
+ * NAME: 	 income_tax.c *
+ * PAGE NUM: 		  96  *
+ * AUTHOR:  	 SWAROOP  *
+ **************************/
+
+ #include <stdio.h>
+
+int main(void)
+{
+    int amount;
+    float tax;
+
+    printf("Enter the amount Income: ");
+    scanf("%d", &amount);
+
+    if (amount < 750)
+        tax = (0.01) * amount;
+    else if (amount < 2250)
+        tax = 7.50f + (0.075*amount);
+    else if (amount < 3750)
+        tax = 37.50f + (.03*amount);
+    else if (amount < 5250)
+        tax = 82.50f + (0.375*amount);
+    else if (amount < 7000)
+        tax = 142.50f + (1.425*amount);
+    else
+        tax = 230.00f + (2.3 * amount);
+
+    printf("Tax due: %.2f", tax);
+    return 0;
+}
+/***********************************
+ * NAME: 	 income_tax_modified.c *
+ * PAGE NUM: 		          217  *
+ * AUTHOR:  	          SWAROOP  *
+ ***********************************/
+
+ #include <stdio.h>
+
+float amount;
+float tax;
+
+float tax_due(float amout);
+
+int main(void)
+{
+    printf("Enter the amount Income: ");
+    scanf("%f", &amount);
+
+    tax = tax_due(amount);
+
+    printf("Tax due: %.2f", tax);
+
+    return 0;
+}
+
+float tax_due(float amout)
+{
+    if (amount < 750)
+        return (0.01 * amount);
+    else if (amount < 2250)
+        return (7.50f + (0.075*amount));
+    else if (amount < 3750)
+        return (37.50f + (.03*amount));
+    else if (amount < 5250)
+        return (82.50f + (0.375*amount));
+    else if (amount < 7000)
+        return (142.50f + (1.425*amount));
+    else
+        return (230.00f + (2.3 * amount));
+}
+/*****************************
+ * PROGRAM NAME:    prime.c  *
+ * PAGE NUMBER:              *
+ * AUTHOR:          SWAROOP  *
+ *****************************/
+
+#include <stdio.h>
+
+#define NUM 1000
+
+int main(void)
+{
+    unsigned long long int num, count = 0;
+
+    printf("Enter a num: ");
+    scanf("%d", &num);
+
+    while ((num > 1))
+    {
+        count++;
+        if (num % 2 == 0)
+        {
+            num /= 2;
+        }
+        else
+            num = (3*num) + 1;
+    }
+    printf("%d ", count+1);
+
+    return 0;
+}
+
+/******************
+ * ans: 842120280 *
+ ******************/
+
+
+
+
+
+#include <stdio.h>
+#include <string.h>
+
+int alphanum_index = 0;
+int string_index = 0;
+int num_index = 0;
+
+void compare(char [], char [], char [], char []);
+void alphanum(char [], char []);
+void string(char [], char []);
+void num(char [], char []);
+
+void alphanum(char read_array[], char to_alphanum[])
+{
+    int length = strlen(read_array);
+    int i;
+
+    for(i = 0; i < length; i++)
+    {
+        to_alphanum[alphanum_index] = read_array[i];
+        alphanum_index++;
+    }
+
+    for(i = 0; i < length; i++)
+        read_array[i] = '\0';
+}
+
+void string(char read_array[], char to_string[])
+{
+    int length = strlen(read_array);
+    int i;
+
+    for(i = 0; i < length; i++)
+    {
+        to_string[string_index] = read_array[i];
+        string_index++;
+    }
+
+    for(i = 0; i < length; i++)
+        read_array[i] = '\0';
+}
+
+void num(char read_array[], char to_num[])
+{
+    int length = strlen(read_array);
+    int i;
+
+    for(i = 0; i < length; i++)
+    {
+        to_num[num_index] = read_array[i];
+        num_index++;
+    }
+
+    for(i = 0; i < length; i++)
+        read_array[i] = '\0';
+}
+
+
+void compare(char read_array[], char to_alphanum[], char to_num[], char to_string[])
+{
+    int length = strlen(read_array);
+    int i;
+    int contains_letters = 0;
+    int contains_numbers = 0;
+    int contains_both = 0;
+
+    for(i = 0; i < length; i++)
+    {
+        if((read_array[i] >= 65 && read_array[i] <= 90) || (read_array[i] >= 97 && read_array[i] <= 122))
+            contains_letters = 1;
+
+        if(read_array[i] >= 48 && read_array[i] <= 57)
+            contains_numbers = 1;
+
+        if(contains_letters == 1 && contains_numbers == 1)
+        {
+            alphanum(read_array, to_alphanum);
+            return;
+        }
+    }
+
+    if(contains_letters == 1)
+        string(read_array, to_string);
+
+    if(contains_numbers == 1)
+        num(read_array, to_num);
+
+}
+int main()
+{
+    char ch;
+    char read[250];
+    char to_alphanum[250];
+    char to_num[250];
+    char to_string[250];
+    int read_index = 0;
+
+    int i, j, k;
+
+
+    while((ch = getchar()) != '\n')
+    {
+        if(ch == ' ')
+        {
+            compare(read, to_alphanum, to_num, to_string);
+            read_index = 0;
+        }
+
+        else
+        {
+            read[read_index] = ch;
+            read_index++;
+        }
+    }
+
+    printf("GetAllAlphanum returns: ");
+    for(i = 0; i < alphanum_index; i++)
+        printf("%c", to_alphanum[i]);
+        printf("\n\n");
+
+    printf("GetAllString returns: ");
+    for(j = 0; j < string_index; j++)
+        printf("%c", to_string[j]);
+        printf("\n\n");
+
+    printf("GetAllNum returns: ");
+    for(k = 0; k < num_index; k++)
+        printf("%c", to_num[k]);
+
+}
+/********************
+* NAME:      ISBN.c  *
+* PAGE NUM:      50  *
+* AUTHOR    SWAROOP  *
+**********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int gsi, g_d, publish, item_num, check_digit;
+
+    printf("Enter ISBN: ");
+    scanf("%d-%d-%d-%d-%d", &gsi, &g_d, &publish, &item_num, &check_digit);
+    printf("GSI prefix: %d\n", gsi);
+    printf("GSI identifier: %d\n", g_d);
+    printf("Publisher code: %d\n", publish);
+    printf("Item number: %d\n", item_num);
+    printf("Check digit: %d\n", check_digit);
+
+    return 0;
+}
+/*****************************
+* NAME:     item_purchase.c  *
+* PAGE NUM:              50  *
+* AUTHOR            SWAROOP  *
+******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int item_num, mm=1, dd=1, yyyy=1;
+    float price;
+
+    printf("Enter item number: ");
+    scanf("%d", &item_num);
+
+    printf("Enter unit price: ");
+    scanf("%f", &price);
+
+    printf("Enter purchase date (mm/dd/yyyy): ");
+    scanf("%d/%d/%d", &mm,&dd,&yyyy);
+
+    printf("\nItem\t\tUnit\t\tPurchase\n\t\tPrice\t\tDate\n%-d\t\t$%5.2f\t\t%d/%d/%d", item_num, price, mm, dd, yyyy);
+
+    return 0;
+}
+/* Formats a file of text */
+
+#include <string.h>
+#include "line.h"
+#include "word.h"
+
+#define MAX_WORD_LEN 20
+
+int main(void)
+{
+    char word[MAX_WORD_LEN + 2];
+    int word_len;
+
+    clear_line();
+    for (;;)
+    {
+        read_word(word, MAX_WORD_LEN + 1);
+        word_len = strlen(word);
+        if (word_len == 0)
+        {
+            flush_line();
+            return 0;
+        }
+        if (word_len > MAX_WORD_LEN)
+            word[MAX_WORD_LEN] = '*';
+        if (word_len + 1 > space_remaining())
+        {
+            write_line();
+            clear_line();
+        }
+        add_word(word);
+    }
+}
+/****************************************
+ * PROGRAM NAME:  lar_small_pointers.c  *
+ * PAGE NUMBER:                    250  *
+ * AUTHOR:                     SWAROOP  *
+ ****************************************/
+
+#include <stdio.h>
+
+#define N 10
+
+void max_min(int a[], int n, int *max, int *min);
+
+int main(void)
+{
+    int b[N], i, big, small;
+
+    printf("Enter %d numbers: ", N);
+    for (i = 0; i < N; i++)
+        scanf("%d", &b[i]);
+
+    max_min(b, N, &big, &small);
+
+    printf("Largest: %d\n", big);
+    printf("Smallest: %d\n", small);
+
+    return 0;
+}
+
+void max_min(int a[], int n, int *max, int *min)
+{
+    int i;
+
+    *max = *min = a[0];
+    for (i = 1; i < n; i++)
+    {
+        if (a[i] > *max)
+            *max = a[i];
+        else if (a[i] < *min)
+            *min = a[i];
+    }
+}
+/**********************************************
+ * PROGRAM NAME:         largest_5_of_1000.c  *
+ * PAGE NUMBER:                               *
+ * AUTHOR:                           SWAROOP  *
+ **********************************************/
+
+#include <stdio.h>
+
+#define SIZE 1000
+
+void quicksort(unsigned long int a[], int low, int high);
+int split(unsigned long int a[], int low, int high);
+
+int main(void)
+{
+    unsigned long a[SIZE];
+    int i, temp, j;
+
+    for (i = 0; i < SIZE; i++)
+    {
+        if (i % 10 == 0)
+            printf("\n");
+        a[i] = rand() % 1000;
+        printf("%d\t", a[i]);
+    }
+    printf("\n\n");
+
+    quicksort(a, 0, SIZE - 1);
+
+    printf("In sorted order: ");
+    for (i = 0; i < SIZE; i++)
+    {
+        if (i % 10 == 0)
+            printf("\n");
+        printf("%d\t", a[i]);
+    }
+    printf("\n\n");
+
+
+    j = SIZE - 5;
+    for (j = SIZE - 1; j >= SIZE - 5; j--)
+    {
+        printf("%d largest number: %d\n", j,  a[j]);
+    }
+
+    return 0;
+}
+
+void quicksort(unsigned long int a[], int low, int high)
+{
+    int middle;
+
+    if (low >= high)
+        return;
+    middle = split(a, low, high);
+    quicksort(a, low, middle - 1);
+    quicksort(a, middle + 1, high);
+}
+
+int split (unsigned long int a[], int low, int high)
+{
+    int part_element = a[low];
+
+    for (;;)
+    {
+        while (low < high && part_element <= a[high])
+            high--;
+        if (low >= high)
+            break;
+        a[low++] = a[high];
+
+        while (low < high && a[low] <= part_element)
+            low++;
+        if (low >= high)
+            break;
+        a[high--] = a[low];
+    }
+
+    a[high] = part_element;
+
+    return high;
+}
+/*********************************
+ * PROGRAM NAME:     largest.c   *
+ * PAGE NUMBER:            122   *
+ * AUTHOR:             SWAROOP   *
+ *********************************/
+
+#include <stdio.h>
+
+int main(void)
+ {
+    float n, largest;
+
+    printf("Enter a number: ");
+    scanf("%f", &n);
+
+    largest = n;
+
+    while (n > 0)
+    {
+        printf("Enter a number: ");
+        scanf("%f", &n);
+
+        if (n > largest)
+            largest = n;
+    }
+
+    printf("\nThe largest number entered was %.2f\n", largest);
+
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:  lar+sec_lar.c  *
+ * PAGE NUMBER:              250 *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+
+void find_two_largest(int a[], int n, int *largest, int *second_largest)
+{
+    int i, temp;
+
+    *second_largest =  a[0];
+    *largest = a[1];
+
+    if (*largest < *second_largest)
+    {
+        temp = *second_largest;
+        *second_largest =  *largest ;
+        *largest  = temp;
+    }
+
+    for(i = 2;i < n;i++)
+    {
+        if (a[i] > *largest)
+        {
+            *second_largest = *largest;
+            *largest = a[i];
+        }
+        if (a[i] > *second_largest && a[i] < *largest)
+            *second_largest= a[i];
+    }
+
+    printf("largest %d\n", *largest);
+    printf("Sec %d", *second_largest);
+}
+
+int main(void)
+{
+    int a[10], n, x=0, y=0, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter ele\n");
+    for (i=0;i<n;i++)
+        scanf("%d", &a[i]);
+
+    find_two_largest(a, n, &x, &y);
+
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:   length2.c   *
+ * PAGE NUMBER:          141   *
+ * AUTHOR:           SWAROOP   *
+ *******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int len = 0;
+
+    printf("Enter a message: ");
+
+    while (getchar() != '\n')
+        len++;
+    printf("\nYour message was %d character(s) long.\n", len);
+
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:   len_of_sen.c  *
+ * PAGE NUMBER:             142  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+
+int main(main)
+{
+    int len = 0;
+
+    while(getchar() != '\n')
+        len++;
+
+    printf("length: %d", len);
+
+    return 0;
+}
+/********************
+* NAME:     loan2.c  *
+* PAGE NUM:    34   *
+* AUTHOR: SWAROOP   *
+*********************/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+float loan, payment, interest;
+int i;
+
+int main(void)
+{
+    float loan, bal1, bal2, bal3, payment, interest, int1, int2, int3;
+    int num, i;
+
+    printf("Enter amount of loan: ");
+    scanf("%f", &loan);
+
+    printf("Enter the number of payments: ");
+    scanf("%d", &num);
+
+    printf("Enter interest rate: ");
+    scanf("%f", &interest);
+
+    printf("Enter monthly payment: ");
+    scanf("%f", &payment);
+
+    for (i=0; (i<num) && (loan > 0); i++)
+    {
+        loan = (loan-payment) + (interest/1200 * loan);
+        printf("Balance remaining after %d payment: %.2f\n", i+1, loan);
+
+
+    }
+    return 0;
+}
+/********************
+* NAME:     loan.c  *
+* PAGE NUM:    34   *
+* AUTHOR: SWAROOP   *
+*********************/
+
+#include <stdio.h>
+
+float loan, payment, interest;
+int i;
+
+int main(void)
+{
+    float loan, bal1, bal2, bal3, payment, interest, int1, int2, int3;
+    int i;
+
+    printf("Enter amount of loan: ");
+    scanf("%f", &loan);
+
+    printf("Enter interest rate: ");
+    scanf("%f", &interest);
+
+    printf("Enter monthly payment: ");
+    scanf("%f", &payment);
+
+    bal1 = (loan-payment) + (interest/1200 * loan);
+    printf("Balance remaining after first payment: %.2f\n", bal1);
+
+    bal2 = (bal1-payment) + (interest/1200 * bal1);
+    printf("Balance remaining after second payment: %.2f\n", bal2);
+
+    bal3 = (bal2-payment) + (interest/1200 * bal2);
+    printf("Balance remaining after third payment: %.2f\n", bal3);
+
+    return 0;
+}
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i = 1;
+    {
+
+        {
+            printf("%d ", i++);
+            int j = i;
+            printf("%d\n ", j);
+        }
+    }
+
+return 0;
+}
+/***********************
+* NAME:      matrix.c  *
+* PAGE NUM:        50  *
+* AUTHOR      SWAROOP  *
+************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch[16], i,j, r1, r2, r3, r4, c1, c2, c3, c4, d, r, c;
+
+    for (j = 0; j <16; j++)
+    {
+        scanf("%d", &ch[j]);
+    }
+
+    c1 = ch[0] + ch[4] + ch[8] + ch[12];
+    c2 = ch[1] + ch[5] + ch[9] + ch[13];
+    c3 = ch[2] + ch[6] + ch[10] + ch[14];
+    c4 = ch[3] + ch[7] + ch[11] + ch[15];
+
+    d = ch[0] + ch[5] + ch[10] + ch[15];
+
+    r1 = ch[0] + ch[1] + ch[2] + ch[3];
+    r2 = ch[4] + ch[5] + ch[6] + ch[7];
+    r3 = ch[8] + ch[9] + ch[10] + ch[11];
+    r4 = ch[12] + ch[13] + ch[14] + ch[15];
+
+    printf("\nColumn-1 sum: %d\n", c1);
+    printf("Column-2 sum: %d\n", c2);
+    printf("Column-3 sum: %d\n", c3);
+    printf("Column-4 sum: %d\n", c4);
+
+    printf("\nRow-1 sum: %d\n", r1);
+    printf("Row-2 sum: %d\n", r2);
+    printf("Row-3 sum: %d\n", r3);
+    printf("Row-4 sum: %d\n", r4);
+
+    printf("\nDiagonal sum: %d\n", d);
+
+    return 0;
+}
+/****************************
+ * PROGRAM NAME:  memcpy.c  *
+ * PAGE NUMBER:        158  *
+ * AUTHOR:         SWAROOP  *
+ ****************************/
+
+#include <stdio.h>
+#include <string.h> // for memcpy()
+
+int main(void)
+{
+    int a[10], b[10], n, i;
+
+    printf("enter no of ele: ");
+    scanf("%d", &n);
+
+    printf("Enter ele of a: ");
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    memcpy(b, a, sizeof(b));
+
+    printf("Contents :\na\tb\n\n");
+    for (i=0; i<n; i++)
+        printf("%d\t%d\n", a[i], b[i]);
+
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:    length.c   *
+ * PAGE NUMBER:          142   *
+ * AUTHOR:           SWAROOP   *
+ *******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch, len = 0;
+
+    printf("Enter a message: ");
+
+    while ((ch = getchar()) != '\n')
+    {
+        len++;
+        // putchar(ch);
+    }
+    printf("\nYour message was %d character(s) long.\n", len);
+
+    return 0;
+}
+/**********************
+* NAME:      star.c   *
+* PAGE NUM:      20   *
+* AUTHOR:   SWAROOP   *
+***********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j;
+
+    for (j=7;j!=0;j--)
+    {
+        for (i=0;i!=8;i++ )
+        {
+            if (i == j)
+            {
+                printf("*\n");
+                break;
+            }
+            else
+            {
+                printf(" ");
+            }
+        }
+    }
+
+    return 0;
+}
+
+/***********************************
+ * PROGRAM NAME:         nelems.c  *
+ * PAGE NUMBER:               345  *
+ * AUTHOR:                SWAROOP  *
+ ***********************************/
+
+#include <stdio.h>
+
+#define NELEM(a) printf("%d", sizeof(a)/ sizeof(a[0]))
+
+int main(void)
+{
+    int a[10];
+
+    NELEM(a);
+
+    return 0;
+}
+
+/********************************
+ * NAME:       num_of_digits.c  *
+ * PAGE NUM:                89  *
+ * AUTHOR:             SWAROOP  *
+ ********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int num;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    if (num >=0 && num <= 9)
+        printf("The number %d has 1 digit\n", num);
+    else if (num >=10 && num <= 99)
+        printf("The number %d has 2 digit\n", num);
+    else if (num >=100 && num <= 999)
+        printf("The number %d has 3 digit\n", num);
+    else if (num >=1000 && num <= 9999)
+        printf("The number %d has 4 digit\n", num);
+    else if (num >=10000 && num <= 99999)
+        printf("The number %d has 5 digit\n", num);
+    else
+        printf("The number %d has more than 5 digits\n", num);
+
+    return 0;
+}
+/*********************************
+ * NAME:        num_of_digits.c  *
+ * PAGE NUM:                214  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+
+int num_digits(long n)
+{
+    int count = 0;
+
+    do
+    {
+        n /= 10;
+        count++;
+    } while (n > 0);
+
+    return count;
+}
+
+int main(void)
+{
+    long n, digits;
+
+    printf("Enter a number: ");
+    scanf("%ld", &n);
+
+    digits = num_digits(n);
+
+    printf("%d has %d digits\n", n, digits);
+
+    return 0;
+}
+#include <stdio.h>
+
+#define IN 1
+#define OUT 0
+
+int main(main)
+{
+    int c, words, chars, state;
+
+    state = OUT;
+    words = chars = 0;
+
+    while ((c = getchar()) != '\n')
+    {
+        chars++;
+        if (c == ' ' || c == '\t')
+            state = OUT;
+        else if (state == OUT)
+        {
+            state = IN;
+            ++words;
+        }
+    }
+
+    printf("%d %d\n", words, chars);
+
+    return 0;
+}
+/**************************
+ * NAME:         octal2.c *
+ * PAGE NUM:        Q & A *
+ * AUTHOR:        SWAROOP *
+ **************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j, k=0, l;
+    int octal[6];
+
+    /*printf("Enter a number between 0 and 32767. I will print its octal equivalent: \n");
+    scanf("%d", &i);
+    printf("OCTAL equivalent: %.5o", i);*/
+
+    printf("Enter a num: ");
+    scanf("%d", &i);
+    while (i != 0)
+    {
+        j = i % 8;
+        i = i/8;
+        octal[k++] = j;
+    }
+    octal[k] = 0;
+    printf("octal equivalent: ");
+    for (l = k; l >=0; l--)
+    {
+        printf("%d", octal[l]);
+    }
+    return 0;
+}
+/**************************
+ * NAME:          octal.c *
+ * PAGE NUM:        Q & A *
+ * AUTHOR:        SWAROOP *
+ **************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j, k;
+
+    printf("Enter a number between 0 and 32767. I will print its octal equivalent: \n");
+    scanf("%d", &i);
+    printf("OCTAL equivalent: %.5o", i);
+
+    return 0;
+}
+/**********************************
+ * PROGRAM NAME:    palindrome.c  *
+ * PAGE NUMBER:              275  *
+ * AUTHOR:               SWAROOP  *
+ **********************************/
+
+#include <stdio.h>
+
+#define SIZE 50
+int main(void)
+{
+    char message[SIZE], *p;
+    int c, i = 0;
+    p = &message[0];
+
+    printf("Enter a message: ");
+    while ((c = getchar()) != '\n')
+    {
+        *p = tolower(c);
+        p++;
+    }
+    *p = '\0';
+    p--;
+
+    for (i = 0; message[i] != '\0'; i++)
+    {
+        if (message[i] == ' ' || *p == ' ')
+            continue;
+        if  (message[i] != *p)
+        {
+            printf("Not a Palindrome\n");
+            return 0;
+        }
+        p--;
+    }
+    printf("Palindrome\n");
+
+    return 0;
+}
+/**********************************
+ * PROGRAM NAME:    palindrome.c  *
+ * PAGE NUMBER:              275  *
+ * AUTHOR:               SWAROOP  *
+ **********************************/
+
+#include <stdio.h>
+#include <ctype.h>
+
+#define SIZE 50
+
+int main(void)
+{
+    char message[SIZE], *p;
+    int c, i = 0;
+    p = &message[0];
+
+    printf("Enter a message: ");
+    while ((c = getchar()) != '\n')
+    {
+        *p = tolower(c);
+        p++;
+    }
+    *p = '\0';
+    p--;
+
+    for (i = 0; message[i] != '\0'; i++)
+    {
+        if ((isspace(message[i])) || (isdigit(message[i])) || isspace(*p) || isdigit(*p))
+        {
+            p--;
+            continue;
+        }
+        if  (message[i] != *p)
+        {
+            printf("Not a Palindrome\n");
+            return 0;
+        }
+        p--;
+    }
+    printf("Palindrome\n");
+
+    return 0;
+}
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define NUM_PLANETS 9
+
+int main(int argc, char *argv[])
+{
+	char *planets[] = {"MERCURY", "VENUS", "EARTH", "MARS", "JUPITER", "SATURN", "URANUS", "NEPTUNE", "PLUTO" };
+	
+	int i, j;
+	
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; j < NUM_PLANETS; j++)
+		{
+			if (strcmp(argv[i], planets[j]) == 0)
+			{
+				printf("%s is a planet %d\n", argv[i], j + 1);
+				break;
+			}
+			if (j == NUM_PLANETS)
+				printf("%s is not a planet\n", argv[i]);
+		}
+	}
+	return 0;
+}
+#include <ctype.h>
+#include <stdio.h>
+#include <string.h>
+
+#define NUM_PLANETS 9
+
+int string_equal(const char *s, const char *t);
+
+int main(int argc, char *argv[])
+{
+  char *planets[] = {"Mercury", "Venus", "Earth",
+                     "Mars", "Jupiter", "Saturn",
+                     "Uranus", "Neptune", "Pluto"};
+  int i, j;
+
+  for (i = 1; i < argc; i++) {
+    for (j = 0; j < NUM_PLANETS; j++)
+      if (string_equal(argv[i], planets[j])) {
+        printf("%s is planet %d\n", argv[i], j + 1);
+        break;
+      }
+    if (j == NUM_PLANETS)
+      printf("%s is not a planet\n", argv[i]);
+  }
+
+  return 0;
+}
+
+int string_equal(const char *s, const char *t)
+{
+  int i;
+
+  for (i = 0; toupper(s[i]) == toupper(t[i]); i++)
+    if (s[i] == '\0')
+      return 1;
+
+  return 0;
+}
+/****************************************
+ * PROGRAM NAME:  pointer_arithmetic.c  *
+ * PAGE NUMBER:                    261  *
+ * AUTHOR:                     SWAROOP  *
+ ****************************************/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main(void)
+{
+    int a[SIZE], *p, sum = 0;
+
+    printf("Enter %d numbers: ", SIZE);
+    for (p = &a[0]; p < &a[SIZE]; p++)
+    {
+        scanf("%d", p);
+        sum += *p;
+    }
+
+    printf("Total Sum: %d", sum);
+
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:  points_coll.c  *
+ * PAGE NUMBER:                  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    float marks[100], score=0, points=0;
+    int i=0;
+    while (i < 5)
+    {
+        printf("Enter marks%d (having grade 4): ", i+1);
+        scanf("%f",&marks[i]);
+        score += marks[i];
+        i++;
+    }
+    printf("Enter marks%d(having grade 3): ", i+1);
+    scanf("%f", &marks[i]);
+    score += marks[i];
+    i++;
+
+    printf("Enter two lab marks: ");
+    scanf("%f", &marks[i]);
+    score += marks[i];
+
+    i++;
+    scanf("%f", &marks[i]);
+    score += marks[i];
+
+    printf("\nTotal marks: %.2f", score);
+    points = (score / 260) * 10;
+    printf("\nPoints: %.2f\n", points);
+    return 0;
+}
+/**********************************
+ * PROGRAM NAME:    polynomial.c  *
+ * PAGE NUMBER:              217  *
+ * AUTHOR:               SWAROOP  *
+ **********************************/
+
+#include <stdio.h>
+#include <math.h>
+
+int polynomial (int x);
+
+int main(void)
+{
+    int x, value;
+
+    printf("Enter a number: ");
+    scanf("%d", &x);
+
+    value = polynomial(x);
+
+    printf("%d ", value);
+
+    return 0;
+}
+
+int polynomial (int x)
+{
+    int result;
+
+    result = ((3 * pow(x, 5)) + (2 * pow(x, 4)) - (5 * pow(x,3)) - (x * x) + (7 * x) - 6);
+
+    return result;
+}
+/*********************************
+ * NAME:         pos_of_a_num.c  *
+ * PAGE NUM:                214  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+
+int digit(int , int);
+
+int main(void)
+{
+    long n;
+    int k, pos;
+
+    printf("Enter a digit: ");
+    scanf("%ld", &n);
+
+    printf("Enter position: ");
+    scanf("%d", &k);
+
+    pos = digit(n, k);
+
+    if (pos == 0)
+        printf("Invalid!\n");
+    else
+        printf("%d\n", pos);
+
+    return 0;
+}
+
+int digit(int n, int k)
+{
+    int position, i = 0;
+
+    while(i < k)
+    {
+        position = n % 10;
+        n = n / 10;
+        i++;
+    }
+
+    if (n > 0)
+        return position;
+    else
+        return 0;
+}
+/****************************
+ * PROGRAM NAME:   power.c  *
+ * PAGE NUMBER:        204  *
+ * AUTHOR:         SWAROOP  *
+ ****************************/
+
+#include <stdio.h>
+
+int power(int x, int n)
+{
+    if (n == 0)
+        return 1;
+    else
+        return x * power(x, n-1);
+}
+int main(void)
+{
+    int x, n, value;
+
+    printf("Enter a number: ");
+    scanf("%d", &x);
+
+    printf("Enter power of %d: ", x);
+    scanf("%d", &n);
+
+    value = power(x, n);
+
+    printf("%d to the power %d: %d",x, n, value);
+    return 0;
+}
+/***************************
+ * PROGRAM NAME:  prime.c  *
+ * PAGE NUMBER:       186  *
+ * AUTHOR:        SWAROOP  *
+ ***************************/
+
+#include <stdio.h>
+#include <stdbool.h>
+
+bool is_prime(int n)
+{
+    int divisor;
+
+    if (n <= 1)
+        return false;
+    for (divisor = 2; divisor * divisor <= n; divisor++)
+        if (n % divisor == 0)
+            return false;
+    return true;
+}
+
+int main(void)
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    if (is_prime(n))
+        printf("Prime\n");
+    else
+        printf("Not prime\n");
+
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:     prime.c   *
+ * PAGE NUMBER:          122   *
+ * AUTHOR:           SWAROOP   *
+ *******************************/
+
+#include <stdbool.h>
+
+int main(void)
+ {
+    int n, divisor;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n <= 1)
+    {
+        printf("Not Prime\n");
+        return 0;
+    }
+
+    for (divisor = 2; divisor * divisor <= n ; divisor++)
+    {
+        if (n % divisor == 0)
+        {
+            printf("Not Prime.\n");
+            return 0;
+        }
+    }
+
+    printf("prime.\n");
+
+    return 0;
+}
+/*****************************
+ * PROGRAM NAME:    prime.c  *
+ * PAGE NUMBER:              *
+ * AUTHOR:          SWAROOP  *
+ *****************************/
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int prime[100], prime2[100], prime3[100];
+    int i, j ,t1,t2, l = 0, k, n, z=0, pos;
+
+
+    printf("Enter upper lim:");
+    scanf("%d", &t1);
+
+    printf("Enter lower lim:");
+    scanf("%d", &t2);
+
+    printf("Enter pos:");
+    scanf("%d", &pos);
+
+    if (pos > t2)
+    {
+        printf("\nNo number in that index!");
+        exit(EXIT_FAILURE);
+    }
+
+
+    for (i = 2; i < t2; i++)
+        prime[i] = i;
+
+    for (i = 2; i < sqrt(t2); i++)
+    {
+    	if (prime[i] != 0)
+    	{
+        	j = i * i;
+        	while (j <= t2)
+        	{
+        		prime[j] = 0;
+        		j += i;
+        	}
+        }
+    }
+    prime[j] = '\0';
+
+    for (i = t1; i < t2; i++)
+    {
+        if (prime[i] == 0)
+            continue;
+        else
+        {
+            prime2[l++] = i;
+        }
+    }
+
+
+
+    for (i = 0; i < l; i++)
+    {
+
+        k= prime2[i];
+        n = k %10;
+        k /= 10;
+        k += n;
+
+        for (j = 2; j < t2; j++)
+        {
+            if (k == prime[j])
+                prime3[z++] = prime2[i];
+            else
+                continue;
+        }
+    }
+
+    printf("\n %d", prime3[pos-1]);
+
+    return 0;
+}
+/*****************************
+ * PROGRAM NAME:    prime.c  *
+ * PAGE NUMBER:              *
+ * AUTHOR:          SWAROOP  *
+ *****************************/
+
+#include <stdio.h>
+#include <math.h>
+#define NUM 600851475143
+
+
+int main(void)
+{
+    long int prime[100], count = 1, sum;
+    long int i, j ;
+
+    for (i = 2; i <= 100; i++)
+        prime[i] = i;
+
+    for (i = 2; i <= sqrt(100); i++)
+    {
+        if (prime[i] != 0)
+        {
+            j = i * i;
+            while (j <= 100)
+            {
+                prime[j] = 0;
+                j = j + i;
+            }
+        }
+    }
+
+
+    for (i = 2; i <= 100; i++)
+    {
+        if ((NUM % i == 0) && (prime[i] != 0))
+            printf("%d ", i);
+    }
+
+
+    return 0;
+}
+
+/***********
+ * ans: 71 *
+ ***********/
+/***************************
+ * PROGRAM NAME:  prime.c  *
+ * PAGE NUMBER:       186  *
+ * AUTHOR:        SWAROOP  *
+ ***************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(void)
+{
+    int i, k = 0, j;
+    unsigned long long n,prime[500000], prime2[500000];
+    prime[0] = prime[1] = 0;
+
+    printf("Enter a number: ");
+
+    scanf("%d", &n);
+    for (i = 2; i < n; i++)
+    {
+        prime[i] = i;
+    }
+    for (i = 2; i <= sqrt(n); i++)
+    {
+        if (prime[i] != 0)
+        {
+            j = i * i;
+            while (j <= n)
+            {
+                prime[j] = 0;
+                j += i;
+            }
+        }
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        if ((prime[i] != 0) && (i % 2 != 0) && (n % i == 0))
+         {
+            prime2[k++] = prime[i];
+
+         }
+    }
+
+    printf("%d ", prime2[--k]);
+
+    return 0;
+}
+/********************************
+ * PROGRAM NAME:   quicksort.c  *
+ * PAGE NUMBER:            208  *
+ * AUTHOR:             SWAROOP  *
+ ********************************/
+
+#include <stdio.h>
+
+#define N 10
+
+void quicksort(int a[], int low, int high);
+int split(int a[], int low, int high);
+
+int main(void)
+{
+    int a[N], i;
+
+    printf("Enter %d numbers to be sorted: ", N);
+    for (i = 0; i < N; i++)
+        scanf("%d", &a[i]);
+
+    quicksort(a, 0, N - 1);
+
+    printf("In sorted order: ");
+    for (i = 0; i < N; i++)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+
+void quicksort(int a[], int low, int high)
+{
+    int middle;
+
+    if (low >= high)
+        return;
+    middle = split(a, low, high);
+    quicksort(a, low, middle - 1);
+    quicksort(a, middle + 1, high);
+}
+
+int split (int a[], int low, int high)
+{
+    int part_element = a[low];
+
+    for (;;)
+    {
+        while (low < high && part_element <= a[high])
+            high--;
+        if (low >= high)
+            break;
+        a[low++] = a[high];
+
+        while (low < high && a[low] <= part_element)
+            low++;
+        if (low >= high)
+            break;
+        a[high--] = a[low];
+    }
+
+    a[high] = part_element;
+
+    return high;
+}
+/************************************
+ * PROGRAM NAME:  repeated_digit.c  *
+ * PAGE NUMBER:                158  *
+ * AUTHOR:                 SWAROOP  *
+ ************************************/
+
+#include <stdio.h>
+#include <stdbool.h> /* C99 only */
+
+int main(void)
+{
+    bool digit_seen[10] = {false}; // initializes only first ele and all elements will be zero automatically
+    int digit;
+    long num, n;
+
+    printf("(less than or equal to 0 to terminate) \n\n");
+    do
+    {
+        printf("Enter a number: ");
+        scanf("%ld", &num);
+        n = num;
+
+        while (n > 0)
+        {
+            digit = n % 10;
+            if (digit_seen[digit])
+                break;
+            digit_seen[digit] = true;
+            n /= 10;
+        }
+
+        if (n > 0)
+            printf("Repeated digit.\n");
+        else
+            printf("No Repeated digit.\n");
+
+    } while (num > 0);
+
+    return 0;
+}
+/************************************
+ * PROGRAM NAME:  repeated_digit.c  *
+ * PAGE NUMBER:                158  *
+ * AUTHOR:                 SWAROOP  *
+ ************************************/
+
+#include <stdio.h>
+#include <stdbool.h> /* C99 only */
+
+int main(void)
+{
+    bool digit_seen[10] = {false}; // initializes only first ele and all elements will be zero automatically
+    int digit;
+    long n;
+
+    printf("Enter a number: ");
+    scanf("%ld", &n);
+
+    while (n > 0)
+    {
+        digit = n % 10;
+        if (digit_seen[digit])
+            break;
+        digit_seen[digit] = true;
+        n /= 10;
+    }
+
+    if (n > 0)
+        printf("Repeated digit.\n");
+    else
+        printf("No Repeated digit.\n");
+
+    return 0;
+}
+/***********************************************
+ * PROGRAM NAME:  repeated_digit_modified_2.c  *
+ * PAGE NUMBER:                           158  *
+ * AUTHOR:                            SWAROOP  *
+ ***********************************************/
+
+#include <stdio.h>
+#include <stdbool.h> /* C99 only */
+
+#define SIZE 10
+
+int main(void)
+{
+    bool digit_seen[SIZE] = { false }; // initializes only first ele and all elements will be zero automatically
+    int repeated_digit[SIZE];
+    int digit, i = 0, j = 0, k;
+    unsigned long long num, n;
+
+    printf("TERMINATION: less than or equal to 0\n\n");
+
+     do {
+        i = j = 0;
+        // repeated_digit[SIZE] = { 0 };
+        for (k = 0; k < SIZE; k++)
+            repeated_digit[k] = 0;
+        for (k = 0; k < SIZE; k++)
+            digit_seen[k] = false;
+
+        printf("Enter a number: ");
+        scanf("%llu", &num);
+
+        if (num == 0)
+            return 0;
+        n = num;
+
+        while (n > 0)
+        {
+            digit = n % 10;
+            if (digit_seen[digit])
+            {
+                if ((j < i) && (repeated_digit[j] == digit))
+                    break;
+                else
+                    repeated_digit[i++] = digit;
+            }
+            else
+            {
+                digit_seen[digit] = true;
+            }
+            n /= 10;
+        }
+
+        if (i == 0)
+        {
+            printf("No repeated digits\n");
+        }
+        else
+        {
+            printf("Repeated digits: ");
+            for (j = i - 1; j >= 0; j--)
+            {
+                printf("%d ", repeated_digit[j]);
+            }
+            printf("\n");
+        }
+
+    } while (num > 0);
+
+    return 0;
+}
+/*********************************************
+ * PROGRAM NAME:  repeated_digit_modified.c  *
+ * PAGE NUMBER:                         158  *
+ * AUTHOR:                          SWAROOP  *
+ *********************************************/
+
+#include <stdio.h>
+#include <stdbool.h> /* C99 only */
+
+#define SIZE 10
+
+int main(void)
+{
+    bool digit_seen[SIZE] = { false }; // initializes only first ele and all elements will be zero automatically
+    int repeated_digit[SIZE];
+    int digit, i = 0, j = 0;
+    unsigned long long n;
+
+    printf("Enter a number: ");
+    scanf("%llu", &n);
+
+    while (n > 0)
+    {
+        digit = n % 10;
+        if (digit_seen[digit])
+        {
+            if ((j < i) && (repeated_digit[j] == digit))
+                break;
+            else
+                repeated_digit[i++] = digit;
+        }
+        else
+        {
+            digit_seen[digit] = true;
+        }
+        n /= 10;
+    }
+
+    if (i == 0)
+    {
+        printf("No repeated digits\n");
+        return 0;
+    }
+
+    printf("Repeated digits: ");
+    for (j = i - 1; j >= 0; j--)
+    {
+        printf("%d ", repeated_digit[j]);
+    }
+    printf("\n");
+
+    return 0;
+}
+/**********************************************************
+ * PROGRAM NAME:  repeated_digit_modified_using_switch_2.c  *
+ * PAGE NUMBER:                                     158   *
+ * AUTHOR:                                      SWAROOP   *
+ **********************************************************/
+
+#include <stdio.h>
+#include <stdbool.h> /* C99 only */
+
+#define SIZE 10
+
+int main(void)
+{
+    int count[SIZE] = { 0 }, i;
+    long num, n;
+
+	do {
+		i = 0;
+		printf("\nEnter a number: ");
+		scanf("%llu", &num);
+		
+		if (num == 0)
+			return 0;
+			
+		n = num;
+		while (n > 0)
+		{
+		    switch (n % 10)
+		    {
+		        case 1: count[1]++;
+		                break;
+
+		        case 2: count[2]++;
+		                break;
+
+		        case 3: count[3]++;
+		                break;
+
+		        case 4: count[4]++;
+		                break;
+
+		        case 5: count[5]++;
+		                break;
+
+		        case 6: count[6]++;
+		                break;
+
+		        case 7: count[7]++;
+		                break;
+
+		        case 8: count[8]++;
+		                break;
+
+		        case 9: count[9]++;
+		                break;
+
+		        default: count[0]++;
+		    }
+		    n /= 10;
+		}
+		printf("\nDigit:\t\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\n");
+		printf("Occurenct:\t");
+		for (i = 0; i < SIZE; i++)
+		{
+		    printf("%d\t", count[i]);
+		}
+		
+		for (i = 0; i < SIZE; i++)
+		{
+		    count[i] = 0;
+		}
+	} while (num > 0);
+    return 0;
+}
+/**********************************************************
+ * PROGRAM NAME:  repeated_digit_modified_using_switch.c  *
+ * PAGE NUMBER:                                     158   *
+ * AUTHOR:                                      SWAROOP   *
+ **********************************************************/
+
+#include <stdio.h>
+#include <stdbool.h> /* C99 only */
+
+#define SIZE 10
+
+int main(void)
+{
+    int count[SIZE] = { 0 }, i;
+    long n;
+
+    printf("Enter a number: ");
+    scanf("%llu", &n);
+    while (n > 0)
+    {
+        switch (n % 10)
+        {
+            case 1: count[1]++;
+                    break;
+
+            case 2: count[2]++;
+                    break;
+
+            case 3: count[3]++;
+                    break;
+
+            case 4: count[4]++;
+                    break;
+
+            case 5: count[5]++;
+                    break;
+
+            case 6: count[6]++;
+                    break;
+
+            case 7: count[7]++;
+                    break;
+
+            case 8: count[8]++;
+                    break;
+
+            case 9: count[9]++;
+                    break;
+
+            default: count[0]++;
+        }
+        n /= 10;
+    }
+    printf("\nDigit:\t\t0\t1\t2\t3\t4\t5\t6\t7\t8\t9\n");
+    printf("Occurenct:\t");
+    for (i = 0; i < SIZE; i++)
+    {
+        printf("%d\t", count[i]);
+    }
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:    reverse.c  *
+ * PAGE NUMBER:           275  *
+ * AUTHOR:            SWAROOP  *
+ *******************************/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main(void)
+{
+    char message[50];
+    int c, i = 0, j;
+
+    printf("Enter a message: ");
+    while ((c = getchar()) != '\n')
+    {
+        message[i] = c;
+        i++;
+    }
+    message[i] = '\0';
+    printf("Reversal is: ");
+    for (j = i - 1; j >= 0; j--)
+        printf("%c", message[j]);
+    printf("\n");
+
+    return 0;
+}
+/**************************
+ * NAME:       reversal.c *
+ * PAGE NUM:        Q & A *
+ * AUTHOR:        SWAROOP *
+ **************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j, h, k;
+
+    printf("Enter a three-digit number: ");
+    scanf("%d", &i); // 123
+
+
+    j = i / 100; // 1
+    i = i % 100; // 23
+    h = i % 10;  // 3
+    k = i / 10;  // 2
+
+    printf("The reversal is: %d%d%d", h, k, j);
+
+    return 0;
+}
+/**************************
+ * NAME:       reversal.c *
+ * PAGE NUM:        Q & A *
+ * AUTHOR:        SWAROOP *
+ **************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j;
+
+    printf("Enter a two-digit number: ");
+    scanf("%d", &i);
+
+    j = i % 10;
+    i = i/10;
+
+    printf("The reversal is: %d%d", j, i);
+
+    return 0;
+}
+/**************************
+ * NAME:       reversal.c *
+ * PAGE NUM:        Q & A *
+ * AUTHOR:        SWAROOP *
+ **************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, j, k;
+
+    printf("Enter a three-digit number: ");
+    scanf("%1d%1d%1d", &i, &j, &k); // 123
+
+
+    /**********************
+     * j = i / 100; // 1  *
+     * i = i % 100; // 23 *
+     * h = i % 10;  // 3  *
+     * k = i / 10;  // 2  *
+     **********************/
+
+    printf("The reversal is: %d%d%d", k, j, i);
+
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:    reverse.c  *
+ * PAGE NUMBER:           261  *
+ * AUTHOR:            SWAROOP  *
+ *******************************/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main(void)
+{
+    int a[SIZE], *p;
+
+    printf("Enter numbers: \n");
+    for (p = a; p < a+SIZE; p++)
+    scanf("%d", p);
+
+    printf("In reverse order: ");
+    for (p = a+SIZE-1; p >=a; p--)
+        printf("%d ", *p);
+    return 0;
+}
+/**************************************
+ * PROGRAM NAME:  reverse_an_array.c  *
+ * PAGE NUMBER:                  158  *
+ * AUTHOR:                   SWAROOP  *
+ **************************************/
+
+#include <stdio.h>
+
+#define N 10
+
+int main(void)
+{
+    int a[N], i;
+
+    printf("Enter %d numbers: ", N);
+    for (i = 0; i < N; i++)
+        scanf("%d", &a[i]);
+
+    printf("In reverse order: ");
+    for (i = N - 1; i >= 0; i--)
+        printf("%d ", a[i]);
+
+    return 0;
+}
+/**************************
+ * NAME:       reverse.c  *
+ * PAGE NUM:          50  *
+ * AUTHOR:       SWAROOP  *
+ **************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n, m;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    printf("Reverse is: ");
+    do
+    {
+        m = n % 10;
+        n = n / 10;
+        printf("%d", m);
+    } while (n != 0);
+
+    return 0;
+}
+/*************************************
+ * PROGRAM NAME:    cmd_arguments.c  *
+ * PAGE NUMBER:                 312  *
+ * AUTHOR:                  SWAROOP  *
+ *************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(int argc, char *argv[])
+{
+    int i;
+
+    for (i =  argc - 1; i >= 1; i--)
+    {
+        printf("%s ", argv[i]);
+    }
+
+    return 0;
+}
+/*******************************************
+ * PROGRAM NAME:    reverse_of_sentence.c  *
+ * PAGE NUMBER:                       180  *
+ * AUTHOR:                        SWAROOP  *
+ *******************************************/
+
+#include <stdio.h>
+
+#define SIZE 50
+
+int main(void)
+{
+    char message[SIZE], reverse[SIZE], punct;
+    int c, i = 0, j ,k, l=0, flag;
+
+    printf("Enter a message: ");
+    while ((c = getchar()) != '\n')
+    {
+        message[i] = c;
+        i++;
+    }
+
+    if (ispunct(message[i-1]))
+    {
+        flag = 1;
+        punct = message[i-1];
+        i = i - 1;
+    }
+    message[i] = '\0';
+
+    j = i - 1;
+
+    while (j >= -1)
+    {
+        if (message[j] == ' ')
+        {
+            for (k = j+1; k < i; k++)
+            {
+                printf("%c", message[k]);
+            }
+            printf(" ");
+            message[j] = '\0';
+            i = j;
+            j--;
+        }
+        else
+            j--;
+    }
+
+    for (j = 0; j < i; j++)
+        printf("%c", message[j]);
+
+    /* print if last char is punctuation */
+    if (flag == 1)
+        printf("%c", punct);
+	printf("\n");
+    return 0;
+}
+/***************************************
+ * PROGRAM NAME:    reverse_pointer.c  *
+ * PAGE NUMBER:                   275  *
+ * AUTHOR:                    SWAROOP  *
+ ***************************************/
+
+#include <stdio.h>
+
+#define SIZE 10
+
+int main(void)
+{
+    char message[50], *p;
+    int c, i = 0,j;
+    p = &message[0];
+
+    printf("Enter a message: ");
+    while ((c = getchar()) != '\n')
+    {
+        *p = c;
+        p++;
+    }
+    *p = '\0';
+    printf("Reversal is: ");
+    while(p >= &message[0])
+        printf("%c", *p--);
+    printf("\n");
+
+    return 0;
+}
+/*****************************************
+ * PROGRAM NAME:   scrabble_crossword.c  *
+ * PAGE NUMBER:                     157  *
+ * AUTHOR:                      SWAROOP  *
+ *****************************************/
+
+#include <stdio.h>
+
+#define SIZE 26
+
+int main(void)
+{
+    int ch, sum = 0, i = 0;
+    char scrabble[SIZE] = {0};
+
+    printf("Enter a word: ");
+    while ((ch = getchar()) != '\n')
+    {
+        switch (toupper(ch))
+        {
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'L':
+            case 'N':
+            case 'O':
+            case 'R':
+            case 'S':
+            case 'T':
+            case 'U':   scrabble[i] = 1;
+                        sum += 1;
+                        break;
+            case 'D':
+            case 'G':   scrabble[i] = 2;
+                        sum += 2;
+                        break;
+            case 'B':
+            case 'C':
+            case 'M':
+            case 'P':   scrabble[i] = 3;
+                        sum += 3;
+                        break;
+            case 'F':
+            case 'H':
+            case 'V':
+            case 'W':
+            case 'Y':   scrabble[i] = 4;
+                        sum += 4;
+                        break;
+            case 'K':   scrabble[i] = 5;
+                        sum += 5;
+                        break;
+            case 'J':
+            case 'X':   scrabble[i] = 8;
+                        sum += 8;
+                        break;
+            case 'Q':
+            case 'Z':   scrabble[i] = 10;
+                        sum += 10;
+                        break;
+            default:    scrabble[i] = 0;
+                        sum += 0;
+                        break;
+        }
+        i++;
+    }
+
+    printf("Scrabble value: %d\n", sum);
+
+    for (i = 0; i < SIZE; i++)
+        printf("%d ", scrabble[i]);
+
+    return 0;
+}
+/*****************************************
+ * PROGRAM NAME:   scrabble_crossword.c  *
+ * PAGE NUMBER:                     157  *
+ * AUTHOR:                      SWAROOP  *
+ *****************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch, sum = 0;
+    printf("Enter a word: ");
+    while ((ch = getchar()) != '\n')
+    {
+        switch (toupper(ch))
+        {
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'L':
+            case 'N':
+            case 'O':
+            case 'R':
+            case 'S':
+            case 'T':
+            case 'U': sum += 1;
+                      break;
+            case 'D':
+            case 'G': sum += 2;
+                      break;
+            case 'B':
+            case 'C':
+            case 'M':
+            case 'P': sum += 3;
+                      break;
+            case 'F':
+            case 'H':
+            case 'V':
+            case 'W':
+            case 'Y': sum += 4;
+                      break;
+            case 'K': sum += 5;
+                      break;
+            case 'J':
+            case 'X': sum += 8;
+                      break;
+            case 'Q':
+            case 'Z': sum += 10;
+                      break;
+            default: sum += 0;
+                     break;
+        }
+    }
+    printf("Scrabble value: %d", sum);
+
+    return 0;
+}
+/*****************************************
+ * PROGRAM NAME:   scrabble_crossword.c  *
+ * PAGE NUMBER:                     312  *
+ * AUTHOR:                      SWAROOP  *
+ *****************************************/
+
+#include <stdio.h>
+
+int compute_scrabble_value(const char *word);
+
+
+int main(void)
+{
+    char word[25], *p;
+    int ch, sum;
+
+     p = &word[0];
+
+    printf("Enter a word: ");
+    while ((ch = getchar()) != '\n')
+    {
+        *p = toupper(ch);
+        p++;
+    }
+    *p = '\0';
+
+    sum = compute_scrabble_value(word);
+
+    printf("Scrabble value: %d", sum);
+    return 0;
+}
+
+int compute_scrabble_value(const char *word)
+{
+    int sum = 0;
+
+    while (*word)
+    {
+        switch (*word++)
+        {
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'L':
+            case 'N':
+            case 'O':
+            case 'R':
+            case 'S':
+            case 'T':
+            case 'U': sum += 1;
+                      break;
+            case 'D':
+            case 'G': sum += 2;
+                      break;
+            case 'B':
+            case 'C':
+            case 'M':
+            case 'P': sum += 3;
+                      break;
+            case 'F':
+            case 'H':
+            case 'V':
+            case 'W':
+            case 'Y': sum += 4;
+                      break;
+            case 'K': sum += 5;
+                      break;
+            case 'J':
+            case 'X': sum += 8;
+                      break;
+            case 'Q':
+            case 'Z': sum += 10;
+                      break;
+            default: sum += 0;
+        }
+    }
+    return sum;
+}
+/*************************************************
+ * PROGRAM NAME:               selection_sort.c  *
+ * PAGE NUMBER:                             216  *
+ * AUTHOR:                              SWAROOP  *
+ *************************************************/
+
+#include <stdio.h>
+
+#define SIZE 15
+
+void selection_sort(int a[], int n);
+
+int main(void)
+{
+    int n, a[SIZE], i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter elements: ");
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    selection_sort(a, n);
+
+    return 0;
+}
+
+void selection_sort(int a[], int n)
+{
+    int largest, i, j, temp;
+
+    largest = a[n-1];
+
+    for (j = 0; j < n-1; j++)
+    {
+        for (i = 0; i < n-j-1; i++)
+        {
+            if (a[i] > a[n-j-1])
+            {
+                temp = a[i];
+                a[i] = a[n-j-1];
+                a[n-j-1] = temp;
+            }
+
+        }
+    }
+
+    for (i = 0; i < n; i++)
+        printf("%d ", a[i]);
+
+}
+/*************************************************
+ * PROGRAM NAME:                seven_segment.c  *
+ * PAGE NUMBER:                             177  *
+ * AUTHOR:         siddarth_modified_by_swaroop  *
+ *************************************************/
+/* ONLY FOR TWO DIGITS */
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+
+    int num, digit, x;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);  // 10
+	
+	if (num % 10 == num)
+		printf(" __\n|  |\n|  |\n __\n");
+    x = num % 10;  // 0
+    num = num / 10;  // 1
+    num = (x * 10) + num;  // 1
+
+    while(num > 0)
+    {
+        digit = num % 10;
+
+        switch(digit)
+        {
+
+            case 1:    printf("|\n|\n"); //1
+                        break;
+
+            case 2:    printf(" __\n __|\n|__\n"); // 2
+                        break;
+
+            case 3:    printf("  __\n  __|\n  __|\n"); //3
+                        break;
+
+            case 4:    printf("|__|\n   |\n");    // 4
+                        break;
+
+            case 5:    printf(" __\n|__\n __|\n"); //5
+                        break;
+
+            case 6:    printf(" _\n|__\n|__|\n"); //6
+                        break;
+
+            case 7:    printf("__\n  |\n  |\n");//7
+                        break;
+
+            case 8:    printf(" __  \n|__|\n|__|\n");//8
+                        break;
+
+            case 9:    printf(" __\n|__|\n __|\n");//9
+                        break;
+
+        }
+
+        num = num / 10;
+
+    }
+
+    if (x == 0)
+    {
+        printf(" __\n|  |\n|  |\n __\n");
+    }
+
+    return 0;
+}
+/*****************************
+ * PROGRAM NAME:    prime.c  *
+ * PAGE NUMBER:              *
+ * AUTHOR:          SWAROOP  *
+ *****************************/
+
+#include <stdio.h>
+#include <math.h>
+
+int main(void)
+{
+    int prime[10];
+    int i, j ;
+
+    for (i = 2; i < 10; i++)
+        prime[i] = i;
+
+    for (i = 2; i < sqrt(10); i++)
+    {
+        for (j = 4; j < 10; j++)
+        {
+            if ( j % i == 0)
+            {
+                prime[j] = 0;
+            }
+        }
+    }
+
+    for (i = 2; i < 10; i++)
+    {
+        if (prime[i] == 0)
+            continue;
+        printf("%d\n", prime[i]);
+    }
+
+    return 0;
+}
+/*********************************
+ * PROGRAM NAME:   len_of_sen.c  *
+ * PAGE NUMBER:             142  *
+ * AUTHOR:              SWAROOP  *
+ *********************************/
+
+#include <stdio.h>
+#define N 1000
+
+int main(main)
+{
+    int i, j, a[N+1];
+
+    for (a[1] = 0, i = 2; i <= N; i++)
+        a[i] = i;
+
+    for (i = 2; i <= N/2; i++)
+        for (j = 2; j <= N/i; j++)
+            a[i*j] = 0;
+
+    for (i = 1; i <= N; i++)
+    {
+        if (a[i])
+            printf("%4d", i);
+    }
+        printf("\n");
+
+
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:   sizeof().c  *
+ * PAGE NUMBER:           157  *
+ * AUTHOR:            SWAROOP  *
+ *******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    printf("Size of short: %d\n", (int) sizeof(short));
+    printf("Size of int: %d\n", (int) sizeof(int));
+    printf("Size of long: %d\n", (int) sizeof(long));
+    printf("Size of float: %d\n", (int) sizeof(float));
+    printf("Size of double: %d\n", (int) sizeof(double));
+    printf("Size of long double: %d\n", (int) sizeof(long double));
+
+  return 0;
+}
+/*********************************************
+ * PROGRAM NAME:    smallest_largest_word.c  *
+ * PAGE NUMBER:                         311  *
+ * AUTHOR:                          SWAROOP  *
+ *********************************************/
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    char smallest_word[20], largest_word[20], word[20];
+
+    printf("Enter a word: ");
+        scanf("%s", word);
+    strcpy(smallest_word, strcpy(largest_word, word));
+
+    while (strlen(word) != 4)
+    {
+        printf("Enter a word: ");
+        scanf("%s", word);
+
+        if (strcmp(word, smallest_word) < 0)
+            strcpy(smallest_word, word);
+        else if (strcmp(word, largest_word) > 0)
+            strcpy (largest_word, word);
+    }
+
+    printf("Smallest word: %s\n", smallest_word);
+    printf("Largest word: %s\n", largest_word);
+
+
+    return 0;
+}
+/******************************
+ * PROGRAM NAME:  squares.c   *
+ * PAGE NUMBER:         102   *
+ * AUTHOR:          SWAROOP   *
+ ******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n, i, odd, square;
+
+    printf("This program prints a table of squares.\n");
+    printf("Enter number of entries in table: ");
+    scanf("%d", &n);
+
+    i = 1;
+    odd = 3;
+    for (square = 1; i<=n ;odd += 2)
+    {
+        printf("%10d%10d\n", i, square);
+        ++i;
+        square += odd;// odd = 3 (initially)
+    }
+
+    return 0;
+}
+/******************************
+ * PROGRAM NAME:  squares.c   *
+ * PAGE NUMBER:         102   *
+ * AUTHOR:          SWAROOP   *
+ ******************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n, i;
+
+    printf("This program prints a table of squares.\n");
+    printf("Enter number of entries in table: ");
+    scanf("%d", &n);
+
+    for (i=1; i<=n ;i++)
+        printf("%10d%10d\n", i, i * i);
+
+    return 0;
+}
+/****************************
+ * PROGRAM NAME:   sum2.c   *
+ * PAGE NUMBER:       132   *
+ * AUTHOR:        SWAROOP   *
+ ****************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    long n, sum = 0;
+
+    printf("This program sums a series of integers: ");
+    printf("Enter integers (0 to terminate): \n");
+    scanf("%ld", &n);
+    while (n != 0)
+    {
+        sum += n;
+        scanf("%ld", &n);
+    }
+
+    printf("The sum is: %ld\n", sum);
+
+    return 0;
+}
+/*************************************
+ * PROGRAM NAME:   sum_of_doubles.c  *
+ * PAGE NUMBER:                 157  *
+ * AUTHOR:                  SWAROOP  *
+ *************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    double sum, n;
+
+    printf("Enter doubles: \n");
+    scanf("%lf", &n);
+
+    while (n)
+    {
+        sum += n;
+        scanf("%lf", &n);
+    }
+
+
+    printf("%.2f", sum);
+
+    return 0;
+}
+/***************************************
+ * PROGRAM NAME:  sum_of_n_nums.c      *
+ * PAGE NUMBER:                  102   *
+ * AUTHOR:                   SWAROOP   *
+ ***************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n=0, sum = 0;
+
+    printf("This program sums a series of integers.\n");
+    printf("Enter integers (0 to terminate): \n");
+
+    //scanf("%d", &n);
+    while (n != -1)
+    {
+        sum += n;
+        scanf("%d", &n);
+    }
+    printf("The sum is: %d\n", sum);
+
+    return 0;
+}
+/***************************************
+ * PROGRAM NAME:  sum_of_n_nums.c   *
+ * PAGE NUMBER:                  102   *
+ * AUTHOR:                   SWAROOP   *
+ ***************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int n, sum = 0;
+
+    printf("This program sums a series of integers.\n");
+    printf("Enter integers (0 to terminate): ");
+
+    scanf("%d", &n);
+    while (n != 0)
+    {
+        sum += n;
+        scanf("%d", &n);
+    }
+    printf("The sum is: %d\n", sum);
+
+    return 0;
+}
+/***********************************
+ * PROGRAM NAME:  T9_dictionary.c  *
+ * PAGE NUMBER:                    *
+ * AUTHOR:                SWAROOP  *
+ ***********************************/
+
+#include <stdio.h>
+
+int main()
+{
+    char c = NULL;
+
+    while((c = getchar()) != '\n')
+    {
+        switch(c)
+        {
+            case 'A':
+            case 'a':   printf("2");
+                        break;
+            case 'B':
+            case 'b':   printf("22");
+                        break;
+            case 'C':
+            case 'c':   printf("222");
+                        break;
+            case 'D':
+            case 'd':   printf("3");
+                        break;
+            case 'E':
+            case 'e':   printf("33");
+                        break;
+            case 'F':
+            case 'f':   printf("333");
+                        break;
+            case 'G':
+            case 'g':   printf("4");
+                        break;
+            case 'H':
+            case 'h':   printf("44");
+                        break;
+            case 'I':
+            case 'i':   printf("444");
+                        break;
+            case 'J':
+            case 'j':   printf("5");
+                        break;
+            case 'K':
+            case 'k':   printf("55");
+                        break;
+            case 'L':
+            case 'l':   printf("555");
+                        break;
+            case 'M':
+            case 'm':   printf("6");
+                        break;
+            case 'N':
+            case 'n':   printf("66");
+                        break;
+            case 'O':
+            case 'o':   printf("666");
+                        break;
+            case 'P':
+            case 'p':   printf("7");
+                        break;
+            case 'Q':
+            case 'q':   printf("77");
+                        break;
+            case 'R':
+            case 'r':   printf("777");
+                        break;
+            case 'S':
+            case 's':   printf("7777");
+                        break;
+            case 'T':
+            case 't':   printf("8");
+                        break;
+            case 'U':
+            case 'u':   printf("88");
+                        break;
+            case 'V':
+            case 'v':   printf("888");
+                        break;
+            case 'W':
+            case 'w':   printf("9");
+                        break;
+            case 'X':
+            case 'x':   printf("99");
+                        break;
+            case 'Y':
+            case 'y':   printf("999");
+                        break;
+            case 'Z':
+            case 'z':   printf("9999");
+                        break;
+
+            default: printf("0");
+        }
+    }
+
+    return 0;
+}
+
+
+
+
+/***************************************
+ * PROGRAM NAME:  table_of_squares.c   *
+ * PAGE NUMBER:                  102   *
+ * AUTHOR:                   SWAROOP   *
+ ***************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, n;
+
+    printf("This program prints a table of squares.\n");
+    printf("Enter number of entries in table: ");
+    scanf("%d", &n);
+
+    i = 1;
+    while (i <= n)
+    {
+        printf("%10d%10d\n", i, i*i);
+        i++;
+    }
+
+    return 0;
+}
+/********************
+* NAME:     tax.c   *
+* PAGE NUM:    34   *
+* AUTHOR: SWAROOP   *
+*********************/
+
+#include <stdio.h>
+
+#define TAX 5
+
+int main(void)
+{
+    float amount;
+
+    printf("Enter an amount: ");
+    scanf("%f", &amount);
+
+    printf("With tax added: %.2f\n", (TAX * amount) / 100 + amount);
+
+    return 0;
+}
+
+/*****************************
+ * NAME:    TCS_ROD_LENGTH.C *
+ * AUTHOR:  SWAROOP NAGENDRA *
+ ****************************/
+
+#include <stdio.h>
+#include <string.h>
+
+struct
+{
+    char name[14];
+    int id;
+    float salary;
+} emp[10];
+
+int main(void)
+{
+    int n, i;
+    char pos, details[10], str[10], *name;
+
+    printf("Enter the key words: ");
+    gets(details);
+
+    printf("Enter POS(S or E)");
+    scanf("%c", &pos);
+
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
+
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter the name: ");
+        scanf("%s", emp[i].name);
+        printf("Enter the id: ");
+        scanf("%d", &emp[i].id);
+        printf("Enter the salary: ");
+        scanf("%f", &emp[i].salary);
+    }
+
+    printf("\n\n");
+
+    if (toupper(pos) == 'S')
+    {
+        for (i = 0; i < n; i++)
+        {
+            name = emp[i].name;
+            strncpy(str, name, strlen(details));
+            if (!strcmp(str, details))
+            {
+                printf("%s\t", emp[i].name);
+                printf("%d\t", emp[i].id);
+                printf("%.2f\n", emp[i].salary);
+            }
+        }
+    }
+    /*
+    else
+    if (toupper(pos) == 'E')
+    {
+        for (i = 0; i < n; i++)
+        {
+
+            name = emp[i].name;
+            strncpy(str, name, -(strlen(details)));
+            if (!strcmp(str, details))
+            {
+                printf("%s\t", emp[i].name);
+                printf("%d\t", emp[i].id);
+                printf("%.2f\n", emp[i].salary);
+            }
+        }
+    }
+    */
+    return 0;
+}
+/*****************************
+ * NAME:    TCS_ROD_LENGTH.C *
+ * AUTHOR:  SWAROOP NAGENDRA *
+ ****************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    float rods[10] = {0};
+    int n, i, j, k;
+
+    printf("Enter num of rods: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%f", &rods[i]);
+    }
+
+    /*** SORT THE GIVEN ARRAY ***/
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = i+1; j < n; j++)
+        {
+            if (rods[i] > rods[j])
+            {
+                k = rods[i];
+                rods[i] = rods[j];
+                rods[j] = k;
+            }
+        }
+    }
+
+    /*** PRINT THE SORTED ARRAY ***/
+
+    printf("\nThe Sorted array: \n");
+    for (i = 0; i < n; i++)
+    {
+        printf("%.f ", rods[i]);
+    }
+
+    printf("\n\nRequired Rods(in ascending order) :\n");
+
+    for (i = 0; i < n-3; i++)
+    {
+        for (j = i+1; j < n-1; j++)
+        {
+            for (k = j+1; k < n; k++)
+            {
+                //printf("%f %f %f\n", i, j, k);
+
+                if (((rods[i] + rods[j] + rods[k]) / 3) == rods[j])
+                {
+                    printf("%.f %.f %.f\n", rods[i], rods[j], rods[k]);
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+/*****************************
+ * NAME:    TCS_pagination.C *
+ * AUTHOR:  SWAROOP NAGENDRA *
+ ****************************/
+
+#include <stdio.h>
+#include <string.h>
+
+struct
+{
+    char name[14];
+    int id;
+    float salary;
+} emp[10];
+
+int main(void)
+{
+    int n, i, j;
+    char pos, details[10], str[10], last[10], k = 0, a, *name;
+
+    printf("Enter the key words: ");
+    gets(details);
+
+    printf("Enter POS(S or E)");
+    scanf("%c", &pos);
+
+    printf("Enter number of employees: ");
+    scanf("%d", &n);
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter the name: ");
+        scanf("%s", emp[i].name);
+        printf("Enter the id: ");
+        scanf("%d", &emp[i].id);
+        printf("Enter the salary: ");
+        scanf("%f", &emp[i].salary);
+    }
+
+    printf("\n\n");
+
+    if (toupper(pos) == 'S')
+    {
+        for (i = 0; i < n; i++)
+        {
+            name = emp[i].name;
+
+            strncpy(str, name, strlen(details));
+            if (!strcmp(str, details))
+            {
+                printf("%s\t", emp[i].name);
+                printf("%d\t", emp[i].id);
+                printf("%.2f\n", emp[i].salary);
+            }
+        }
+    }
+    
+    else
+    if (toupper(pos) == 'E')
+    {
+        for (i = 0; i < n; i++)
+        {
+            a = strlen(emp[i].name) - strlen(details);
+
+            for (j = a; j != strlen(emp[i].name); j++)
+            {
+                last[k] = emp[i].name[j];
+                k++;
+            }
+            last[k] = '\0';
+
+            if (!strcmp(last, details))
+            {
+                printf("%s\t\t", emp[i].name);
+                printf("%d\t", emp[i].id);
+                printf("%.2f\n", emp[i].salary);
+            }
+
+            k = 0;
+            last[10] = '\0';
+        }
+
+    }
+
+    return 0;
+}
+/***************************
+ * NAME:      telephone.c  *
+ * PAGE NUM:           50  *
+ * AUTHOR         SWAROOP  *
+ ***************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int xxx, xxx2, xxxx;
+
+    printf("Enter phone number [(xxx) xxx-xxxx]: ");
+    scanf("(%d) %d-%d", &xxx, &xxx2, &xxxx);
+    printf("You entered: %d.%d.%d", xxx, xxx2, xxxx);
+    return 0;
+}
+#include <stdio.h>
+#define DEBUG
+#include "debug.h"
+
+int main(void)
+{
+    int i=1, j=2, k=3;
+
+    #ifdef DEBUG
+        printf("output if DEBUG is defined:\n");
+    #else
+        printf("output if DEBUG is not defined:\n");
+    #endif
+
+    PRINT_DEBUG(i);
+    PRINT_DEBUG(j);
+    PRINT_DEBUG(k);
+    PRINT_DEBUG(i+j);
+    PRINT_DEBUG(2*i+j-k);
+
+    return 0;
+}
+/*******************************
+ * PROGRAM NAME:   toupper.c   *
+ * PAGE NUMBER:          139   *
+ * AUTHOR:           SWAROOP   *
+ *******************************/
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main(void)
+{
+    char name[20];
+    char *ptr = name;
+
+    printf("Enter a string: ");
+    scanf("%s", name);
+
+    while (*ptr)
+    {
+        printf("%c", toupper(*ptr++));
+    }
+
+    return 0;
+}
+/**********************
+ * NAME:       UPC2.c  *
+ * PAGE NUM:      50  *
+ * AUTHOR:   SWAROOP  *
+ **********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int d, i1, i2, i3, i4, i5, i6, j1, j2, j3, j4, j5, j6, first_sum, second_sum, total;
+
+    printf("Enter the first (single) digit: ");
+    scanf("%1d", &d);
+    printf("Enter first group of six digits: ");
+    scanf("%1d%1d%1d%1d%1d%1d", &i1, &i2, &i3, &i4, &i5, &i6);
+    printf("Enter second group of six digits: ");
+    scanf("%1d%1d%1d%1d%1d%1d", &j1, &j2, &j3, &j4, &j5, &j6);
+
+    first_sum = d + i2 + i4 + i6 + j2 + j4 + j6 ;
+    second_sum = i1 + i3 + i5 + j1 + j3 + j5;
+    total = 3 * first_sum + second_sum;
+
+    printf("Check digit: %d\n", 9 - ((total - 1) % 10));
+
+    return 0;
+}
+/**********************
+ * NAME:       UPC.c  *
+ * PAGE NUM:      50  *
+ * AUTHOR:   SWAROOP  *
+ **********************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int d, i1, i2, i3, i4, i5, j1, j2, j3, j4, j5, first_sum, second_sum, total;
+
+    printf("Enter the first (single) digit: ");
+    scanf("%1d", &d);
+    printf("Enter first group of five digits: ");
+    scanf("%1d%1d%1d%1d%1d", &i1, &i2, &i3, &i4, &i5);
+    printf("Enter second group of five digits: ");
+    scanf("%1d%1d%1d%1d%1d", &j1, &j2, &j3, &j4, &j5);
+
+    first_sum = d + i2 + i4 + j1 + j3 + j5;
+    second_sum = i1 + i3 + i5 + j2 + j4;
+    total = 3 * first_sum + second_sum;
+
+    printf("Check digit: %d\n", 9 - ((total - 1) % 10));
+
+    return 0;
+}
+/***************************************************
+ * PROGRAM NAME:  reverse_variable_array_length.c  *
+ * PAGE NUMBER:                               158  *
+ * AUTHOR:                                SWAROOP  *
+ ***************************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int i, n;
+
+    printf("How many numbers do you want to reverse? ");
+    scanf("%d", &n);
+
+    int a[n];   // C99 only - length of array depends on n
+
+    printf("Enter %d numbers: ", n);
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("In reverse order: ");
+    for (i = n - 1; i >= 0; i--)
+        printf("%d ", a[i]);
+    printf("\n");
+
+    return 0;
+}
+/******************************
+* NAME:     vol_of_sphere.c   *
+* PAGE NUM:              34   *
+* AUTHOR:           SWAROOP   *
+*******************************/
+
+#include <stdio.h>
+
+#define PI 3.142856
+#define VOLUME(r) return ((4.0f/3.0f) * PI * r * r* r)
+int main(void)
+{
+    int radius;
+    float volume;
+    printf("******************\n");
+    printf("VOLUME OF A SPHERE\n");
+    printf("******************\n");
+    printf("Enter value of radius: ");
+    scanf("%d", &radius);
+
+
+
+    printf("\nVolume of a sphere: %f\n", VOLUME(radius));
+
+    return 0;
+}
+
+/****************************
+ * PROGRAM NAME:  vowels.c  *
+ * PAGE NUMBER:         97  *
+ * AUTHOR:         SWAROOP  *
+ ****************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch, count = 0, count1 = 0;
+
+    printf("Enter a sentence: ");
+    while ((ch = getchar()) != '\n')
+    {
+        switch (toupper(ch))
+        {
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'O':
+            case 'U':   count++;
+                      break;
+            default:    count1++;
+                      break;
+        }
+    }
+
+        printf("Your sentence contains %d Vowels, %d other character(s).\n", count, count1);
+
+    return 0;
+}
+/***************************
+ * NAME: 	  wind_speed.c *
+ * PAGE NUM: 		   96  *
+ * AUTHOR:  	  SWAROOP  *
+ **************************/ 
+ 
+ #include <stdio.h>
+
+int main(void)
+{
+    int n;
+    printf("Enter a wind speed (in knots): ");
+    scanf("%d",&n);
+
+    if(n<1)
+    {
+        printf("Calm.....\n");
+        exit(0);
+    }
+    else if(n>=1 && n <=3)
+    {
+        printf("Light air..\n");
+        exit(0);
+    }
+    else if(n>=4 && n <=27)
+    {
+        printf("$$$$ Breeze $$$$..\n");
+        exit(0);
+    }
+    else if(n>=28 && n <=47)
+    {
+        printf("@@@ Gale @@@@\n");
+        exit(0);
+    }
+    else if(n>=48 && n <=63)
+    {
+        printf("*** Storm ***\n");
+        exit(0);
+    }
+    else if(n>63)
+    {
+        printf("Hurricane!!!!!!!\n");
+        exit(0);
+    }
+    return 0;
+}
+#include <string.h>
+#include "word.h"
+
+int read_char(void)
+{
+    int ch = getchar();
+
+    if (ch == '\n' || ch == '\t')
+        return ' ';
+    return ch;
+}
+void read_word(char *word, int len)
+{
+    int ch, pos = 0;
+
+    while ((ch = read_char()) == ' ')
+        ;
+    while (ch != ' ' && ch != EOF)
+    {
+        if (pos < len)
+            word[pos++] = ch;
+        ch = read_char();
+    }
+    word[pos] = '\0';
+}
+/*****************************************
+ * PROGRAM NAME:  average_word_length.c  *
+ * PAGE NUMBER:                     158  *
+ * AUTHOR:                      SWAROOP  *
+ *****************************************/
+
+#include <stdio.h>
+
+int main(void)
+{
+    int ch;
+    float words = 0, chars = 0;
+
+    printf("Enter a sentence: ");
+
+    while ((ch = getchar()) != '\n')
+    {
+        if (ch == ' ')
+            words++;
+        else
+            chars++;
+    }
+    printf("Average word length: %.1f", chars/(words+1));
+
+    return 0;
+}
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+#define IN 1
+#define OUT 0
+
+int main(int argc, char *argv[])
+{
+	FILE *fp;
+	
+	int ch, words = 0;
+	
+	if (argc != 2)
+	{
+		fprintf(stderr, "Can't open");
+		exit(EXIT_FAILURE);
+	}
+	
+	if ((fp =fopen(argv[1], "r")) == NULL)
+	{
+		fprintf(stderr, "Can't open");
+		exit(EXIT_FAILURE);
+	}
+	
+	while ((ch = getchar()) != '\n')
+    {
+        if (ch == ' ' || ch == '\t')
+            state = OUT;
+        else if (state == OUT)
+        {
+            state = IN;
+            ++words;
+        }
+    }
+		
+	printf("There are %d words in %s\n", words, argv[1]);
+	
+	return 0;
+}
+	

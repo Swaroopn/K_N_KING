@@ -1,0 +1,1 @@
+this program is written to test the return value of fread().
